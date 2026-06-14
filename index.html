@@ -3,304 +3,229 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SmartOMR — Instant Exam Grading, Zero Manual Work</title>
+<title>SmartOMR — Grade 500 Sheets in Minutes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ══════════════════════════════════════════════
-   TOKENS
-══════════════════════════════════════════════ */
 :root {
-  --blue:       #2563EB;
-  --blue-lt:    #EFF4FF;
-  --blue-mid:   #BFCFFE;
-  --blue-dark:  #1d4ed8;
-  --green:      #16A34A;
-  --green-lt:   #DCFCE7;
-  --amber:      #D97706;
-  --amber-lt:   #FEF3C7;
-  --indigo:     #4F46E5;
-  --indigo-lt:  #EEF2FF;
-  --ink:        #0D1117;
-  --ink2:       #374151;
-  --ink3:       #6B7280;
-  --paper:      #FFFFFF;
-  --surface:    #F8F9FB;
-  --surface2:   #EFF1F5;
-  --border:     #E5E7EB;
-  --border2:    #D1D5DB;
-  --r-sm:       6px;
-  --r:          12px;
-  --r-lg:       20px;
-  --r-xl:       28px;
-  --sh-sm:      0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
-  --sh:         0 4px 16px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
-  --sh-lg:      0 16px 48px rgba(0,0,0,.10),0 4px 12px rgba(0,0,0,.05);
-  --sh-xl:      0 24px 64px rgba(0,0,0,.12),0 8px 20px rgba(0,0,0,.06);
-  --font:       'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:       'JetBrains Mono', 'Fira Code', monospace;
+  --blue:#2563EB; --blue-dk:#1d4ed8; --blue-lt:#EFF4FF; --blue-mid:#BFCFFE;
+  --green:#16A34A; --green-lt:#DCFCE7;
+  --amber:#D97706; --amber-lt:#FEF3C7;
+  --red:#DC2626; --red-lt:#FEE2E2;
+  --ink:#0D1117; --ink2:#374151; --ink3:#6B7280;
+  --paper:#FFFFFF; --surface:#F8F9FB; --surface2:#EFF1F5;
+  --border:#E5E7EB;
+  --r:10px; --r-lg:16px; --r-xl:22px;
+  --sh:0 4px 20px rgba(0,0,0,.08);
+  --sh-lg:0 12px 40px rgba(0,0,0,.10);
+  --font:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
 }
-
-/* ══════════════════════════════════════════════
-   RESET
-══════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
 
-/* ══════════════════════════════════════════════
-   TYPOGRAPHY
-══════════════════════════════════════════════ */
+/* ── TYPE ── */
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.display{font-size:clamp(2rem,5.5vw,3.75rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--ink)}
+.display{font-size:clamp(2rem,6vw,3.6rem);font-weight:900;line-height:1.08;letter-spacing:-.03em}
 .display em{font-style:normal;color:var(--blue)}
-.h2{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;color:var(--ink)}
-.h3{font-size:1.05rem;font-weight:700;line-height:1.35;color:var(--ink)}
-.body-lg{font-size:clamp(1rem,2vw,1.125rem);line-height:1.72;color:var(--ink2)}
-.body{font-size:.9375rem;line-height:1.65;color:var(--ink2)}
-.caption{font-size:.8125rem;color:var(--ink3)}
-.mono{font-family:var(--mono);font-size:.8125rem}
-.text-center{text-align:center}
-.text-white{color:#fff}
+.h2{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:800;line-height:1.15;letter-spacing:-.025em}
+.h3{font-size:1rem;font-weight:700;line-height:1.3}
+.body{font-size:.9rem;line-height:1.65;color:var(--ink2)}
+.body-lg{font-size:clamp(.95rem,2vw,1.05rem);line-height:1.7;color:var(--ink2)}
+.mono{font-family:var(--mono)}
+.tc{text-align:center}
 
-/* ══════════════════════════════════════════════
-   LAYOUT
-══════════════════════════════════════════════ */
-.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
-.wrap-sm{max-width:700px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
-section{padding:clamp(64px,8vw,96px) 0}
-.section-divider{border:none;border-top:1px solid var(--border);margin:0}
+/* ── LAYOUT ── */
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,5vw,40px)}
+.wrap-sm{max-width:620px;margin:0 auto}
+section{padding:clamp(52px,8vw,88px) 0}
+.divider{border:none;border-top:1px solid var(--border)}
 
-/* Gaps */
-.mt-2{margin-top:8px}
-.mt-3{margin-top:12px}
-.mt-4{margin-top:16px}
-.mt-5{margin-top:20px}
-.mt-6{margin-top:24px}
-.mt-8{margin-top:32px}
-.mt-10{margin-top:40px}
-.mt-12{margin-top:48px}
-.mt-14{margin-top:56px}
-.mt-16{margin-top:64px}
-
-/* ══════════════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════════════ */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 24px;border-radius:var(--r-sm);font-size:.9375rem;font-weight:600;
-  border:1.5px solid transparent;cursor:pointer;transition:all .18s ease;
-  white-space:nowrap;text-align:center;line-height:1}
-.btn-lg{padding:15px 32px;font-size:1rem}
-.btn-sm{padding:9px 18px;font-size:.875rem}
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:13px 24px;border-radius:var(--r);font-size:.9rem;font-weight:700;
+  border:1.5px solid transparent;transition:all .17s;white-space:nowrap;line-height:1}
+.btn-lg{padding:16px 32px;font-size:.95rem}
 .btn-primary{background:var(--blue);color:#fff;border-color:var(--blue);
-  box-shadow:0 2px 8px rgba(37,99,235,.35)}
-.btn-primary:hover{background:var(--blue-dark);box-shadow:0 6px 20px rgba(37,99,235,.4);transform:translateY(-1px)}
+  box-shadow:0 2px 12px rgba(37,99,235,.35)}
+.btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,99,235,.42)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--border)}
-.btn-ghost:hover{background:var(--surface);border-color:var(--border2)}
-.btn-white{background:#fff;color:var(--blue);border-color:#fff;font-weight:700}
-.btn-white:hover{background:#EFF4FF;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-ghost:hover{background:var(--surface)}
+.btn-white{background:#fff;color:var(--blue);font-weight:800;border-color:#fff}
+.btn-white:hover{background:var(--blue-lt);transform:translateY(-1px)}
 .btn-outline-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
-.btn-group{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-outline-white:hover{background:rgba(255,255,255,.08);border-color:#fff}
 
-/* ══════════════════════════════════════════════
-   PILLS / BADGES
-══════════════════════════════════════════════ */
+/* ── PILLS ── */
 .pill{display:inline-flex;align-items:center;gap:5px;
-  padding:4px 11px;border-radius:99px;font-size:11px;font-weight:700;line-height:1}
+  padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;line-height:1.4}
 .pill-blue{background:var(--blue-lt);color:var(--blue)}
 .pill-green{background:var(--green-lt);color:var(--green)}
 .pill-amber{background:var(--amber-lt);color:var(--amber)}
-.pill-indigo{background:var(--indigo-lt);color:var(--indigo)}
-.pill-live{background:var(--green-lt);color:var(--green)}
-.pill-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.pill-live::before{content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--green);display:inline-block;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ══════════════════════════════════════════════
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* ════════════════════════════
    NAV
-══════════════════════════════════════════════ */
-nav{position:sticky;top:0;z-index:200;
-  background:rgba(255,255,255,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+════════════════════════════ */
+nav{position:sticky;top:0;z-index:300;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1140px;margin:0 auto;
-  padding:0 clamp(16px,4vw,32px);height:62px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nav-logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.05rem;
+.nav-inner{max-width:1100px;margin:0 auto;
+  padding:0 clamp(16px,5vw,40px);height:58px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;
   letter-spacing:-.02em;color:var(--ink);flex-shrink:0}
-.nav-logo-icon{width:28px;height:28px;background:var(--blue);border-radius:7px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-mark{width:26px;height:26px;background:var(--blue);border-radius:7px;
+  display:flex;align-items:center;justify-content:center}
 .nav-logo span{color:var(--blue)}
-.nav-links{display:flex;gap:clamp(16px,3vw,28px);list-style:none}
-.nav-links a{font-size:.875rem;font-weight:500;color:var(--ink2);transition:color .15s}
+.nav-links{display:flex;gap:clamp(14px,2vw,24px);list-style:none}
+.nav-links a{font-size:.84rem;font-weight:500;color:var(--ink2);transition:color .14s}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{display:flex;gap:8px;align-items:center;flex-shrink:0}
-.nav-hamburger{display:none;background:none;border:1px solid var(--border);
-  border-radius:var(--r-sm);padding:8px;color:var(--ink)}
-.nav-mobile-menu{display:none;position:fixed;inset:62px 0 0 0;background:#fff;
-  z-index:199;padding:24px clamp(16px,4vw,32px);border-top:1px solid var(--border);
-  overflow-y:auto}
-.nav-mobile-menu.open{display:block}
-.nav-mobile-links{list-style:none;display:flex;flex-direction:column;gap:4px;margin-bottom:20px}
-.nav-mobile-links a{display:block;padding:12px 0;font-size:1rem;font-weight:500;
+.nav-ham{display:none;align-items:center;justify-content:center;
+  background:none;border:1.5px solid var(--border);border-radius:8px;
+  padding:7px 9px;color:var(--ink)}
+.nav-ham span{display:block;width:16px;height:1.5px;background:currentColor;transition:all .2s}
+.nav-ham span+span{margin-top:4px}
+.nav-ham.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:58px;left:0;right:0;bottom:0;
+  background:#fff;z-index:299;padding:20px clamp(16px,5vw,40px) 32px;overflow-y:auto}
+.nav-drawer.open{display:flex;flex-direction:column;gap:20px}
+.nav-drawer-links{list-style:none;display:flex;flex-direction:column}
+.nav-drawer-links a{display:block;padding:14px 0;font-size:1rem;font-weight:500;
   color:var(--ink);border-bottom:1px solid var(--surface2)}
-.nav-mobile-btns{display:flex;flex-direction:column;gap:10px}
-.nav-mobile-btns .btn{justify-content:center}
-
-@media(max-width:768px){
+.nav-drawer-btns{display:flex;flex-direction:column;gap:10px}
+.nav-drawer-btns .btn{justify-content:center;width:100%}
+@media(max-width:820px){
   .nav-links,.nav-cta .btn-ghost{display:none}
-  .nav-hamburger{display:flex}
-  .nav-cta .btn-primary{padding:9px 16px;font-size:.8125rem}
+  .nav-ham{display:flex}
+  .nav-cta .btn-primary{padding:8px 14px;font-size:.8rem}
 }
 
-/* ══════════════════════════════════════════════
+/* ════════════════════════════
    HERO
-══════════════════════════════════════════════ */
-#hero{padding:clamp(56px,8vw,88px) 0 clamp(48px,7vw,72px);
-  background:var(--paper);position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 55% at 65% -5%,rgba(37,99,235,.07) 0%,transparent 65%),
-             radial-gradient(ellipse 45% 35% at 95% 85%,rgba(79,70,229,.05) 0%,transparent 60%);
+════════════════════════════ */
+#hero{
+  padding:clamp(48px,8vw,80px) 0 clamp(40px,6vw,64px);
+  background:linear-gradient(160deg,#f0f5ff 0%,#ffffff 60%);
+  position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;
+  top:-120px;right:-80px;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 70%);
   pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,60px);align-items:center;position:relative}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;border-radius:99px;
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,5vw,56px);align-items:center;position:relative;z-index:1}
+.hero-kicker{display:inline-flex;align-items:center;gap:7px;
+  padding:5px 12px;border-radius:99px;
   background:var(--blue-lt);border:1px solid var(--blue-mid);
-  font-size:12px;font-weight:600;color:var(--blue)}
-.hero-stats{display:flex;gap:clamp(20px,4vw,40px);padding-top:36px;border-top:1px solid var(--border);flex-wrap:wrap}
-.stat-num{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;letter-spacing:-.04em;color:var(--ink)}
-.stat-lbl{font-size:.78rem;color:var(--ink3);margin-top:2px;line-height:1.4}
+  font-size:11.5px;font-weight:700;color:var(--blue);margin-bottom:20px}
+.hero-kicker::before{content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--blue);animation:blink 2s infinite}
+.hero-sub{margin-top:14px;max-width:480px}
+.hero-cta{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.hero-proof{display:flex;gap:clamp(16px,3vw,32px);
+  padding-top:28px;margin-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+.proof-item .num{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-.04em}
+.proof-item .lbl{font-size:.72rem;color:var(--ink3);margin-top:2px;line-height:1.35}
 
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-mockup-wrap{display:none}
-}
-@media(max-width:480px){
-  .hero-stats{gap:20px}
-  .btn-group{flex-direction:column;width:100%}
-  .btn-group .btn{justify-content:center;width:100%}
-}
+/* mockup */
+.mockup{background:#fff;border:1px solid var(--border);
+  border-radius:var(--r-lg);box-shadow:var(--sh-lg);overflow:hidden}
+.mbar{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:9px 14px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-r{background:#FF5F57}.dot-y{background:#FEBC2E}.dot-g{background:#28C840}
+.mbar-title{font-size:10.5px;color:var(--ink3);font-family:var(--mono);margin-left:7px}
+.mbody{padding:16px;display:flex;flex-direction:column;gap:10px}
+.sheet-row{display:flex;align-items:center;gap:10px}
+.sheet-thumb{width:36px;height:46px;border-radius:4px;border:1px solid var(--border);
+  background:linear-gradient(135deg,#e8ecf4,#d1d8e8);flex-shrink:0}
+.sheet-info{flex:1;min-width:0}
+.sheet-name{font-size:11px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet-sub{font-size:10px;color:var(--ink3);margin-top:1px}
+.sbadge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;flex-shrink:0}
+.sbadge-done{background:var(--green-lt);color:var(--green)}
+.sbadge-proc{background:#FEF9C3;color:#854D0E}
+.score-row{background:var(--surface);border-radius:8px;padding:10px 12px;
+  display:flex;justify-content:space-between;align-items:center;gap:8px}
+.bubbles{display:flex;gap:3px;flex-wrap:wrap}
+.bub{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700}
+.bub-ok{background:var(--green);border-color:var(--green);color:#fff}
+.bub-no{background:var(--red-lt);border-color:#FCA5A5;color:var(--red)}
+.score-big{font-size:1.3rem;font-weight:900;color:var(--ink);text-align:right}
+.score-pct{font-size:10px;color:var(--green);font-weight:700}
 
-/* ══════════════════════════════════════════════
-   APP MOCKUP
-══════════════════════════════════════════════ */
-.app-mockup{background:var(--paper);border:1px solid var(--border);
-  border-radius:var(--r-xl);box-shadow:var(--sh-xl);overflow:hidden}
-.mockup-bar{background:var(--surface);border-bottom:1px solid var(--border);
-  padding:11px 16px;display:flex;align-items:center;gap:8px}
-.mac-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.mac-r{background:#FF5F57}.mac-y{background:#FEBC2E}.mac-g{background:#28C840}
-.mockup-bar-label{font-size:11px;color:var(--ink3);margin-left:6px;font-family:var(--mono)}
-.mockup-sidebar{width:52px;background:var(--surface);border-right:1px solid var(--border);
-  padding:12px 8px;display:flex;flex-direction:column;gap:6px;align-items:center}
-.sidebar-btn{width:36px;height:36px;border-radius:var(--r-sm);border:none;background:transparent;
-  display:flex;align-items:center;justify-content:center;cursor:default;color:var(--ink3)}
-.sidebar-btn.active{background:var(--blue-lt);color:var(--blue)}
-.mockup-body-wrap{display:flex;height:280px}
-.mockup-content{flex:1;padding:16px;overflow:hidden}
-.upload-zone-mock{background:var(--surface);border:1.5px dashed var(--blue-mid);
-  border-radius:var(--r);padding:14px;text-align:center;margin-bottom:12px}
-.upload-zone-mock svg{margin:0 auto 6px}
-.upload-zone-mock span{font-size:11px;color:var(--ink3)}
-.scan-row{display:flex;align-items:center;gap:8px;padding:8px 10px;
-  background:var(--paper);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:6px}
-.scan-thumb{width:32px;height:40px;border-radius:3px;background:linear-gradient(135deg,#e0e8f8,#c8d5ee);
-  border:1px solid var(--border);flex-shrink:0}
-.scan-info{flex:1;min-width:0}
-.scan-name{font-size:11px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.scan-meta{font-size:10px;color:var(--ink3)}
-.scan-score{font-size:13px;font-weight:800;color:var(--blue);flex-shrink:0}
-.prog-bar-wrap{height:4px;background:var(--surface2);border-radius:99px;overflow:hidden;margin-top:10px}
-.prog-bar-fill{height:100%;background:linear-gradient(90deg,var(--blue),#60A5FA);
-  border-radius:99px;animation:progAnim 2.5s ease-in-out infinite alternate}
-@keyframes progAnim{from{width:20%}to{width:85%}}
-.prog-label{display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);margin-top:5px}
-
-/* ══════════════════════════════════════════════
-   PANELS — SHARED CARDS
-══════════════════════════════════════════════ */
-.card{background:var(--paper);border:1px solid var(--border);
-  border-radius:var(--r);padding:clamp(20px,3vw,28px);
-  box-shadow:var(--sh-sm);transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:var(--sh);transform:translateY(-2px)}
-.card-icon{width:44px;height:44px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.card-icon.blue{background:var(--blue-lt);color:var(--blue)}
-.card-icon.green{background:var(--green-lt);color:var(--green)}
-.card-icon.amber{background:var(--amber-lt);color:var(--amber)}
-.card-icon.indigo{background:var(--indigo-lt);color:var(--indigo)}
-.card-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
-
-/* Grid layouts */
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,3vw,24px)}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.5vw,20px)}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px)}
-
-@media(max-width:900px){
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:640px){
-  .grid-2{grid-template-columns:1fr}
-  .grid-3{grid-template-columns:1fr}
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:420px){
-  .grid-4{grid-template-columns:1fr}
+@media(max-width:820px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-kicker{margin:0 auto 20px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-proof{justify-content:center}
+  .hero-mockup{display:none}
 }
 
-/* ══════════════════════════════════════════════
-   SECTION HEADERS
-══════════════════════════════════════════════ */
-.sec-hd{margin-bottom:clamp(36px,5vw,56px)}
-.sec-hd.centered{text-align:center}
-.sec-hd .eyebrow{margin-bottom:10px}
-.sec-hd .h2{margin-bottom:14px}
+/* ════════════════════════════
+   USP STRIP
+════════════════════════════ */
+#usp{padding:0;background:var(--ink)}
+.usp-strip{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;border-bottom:1px solid rgba(255,255,255,.06)}
+.usp-strip::-webkit-scrollbar{display:none}
+.usp-item{flex:1;min-width:200px;padding:22px 24px;
+  border-right:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:12px}
+.usp-item:last-child{border-right:none}
+.usp-icon{font-size:22px;flex-shrink:0}
+.usp-text strong{display:block;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:2px}
+.usp-text span{font-size:.78rem;color:#9CA3AF}
 
-/* ══════════════════════════════════════════════
-   PROBLEM
-══════════════════════════════════════════════ */
-#problem{background:var(--surface)}
-.pain-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);
-  padding:clamp(20px,3vw,28px);position:relative;overflow:hidden;transition:all .2s}
-.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,#EF4444,#F97316)}
-.pain-card:hover{transform:translateY(-2px);box-shadow:var(--sh)}
-.pain-icon{font-size:24px;margin-bottom:12px;display:block}
+/* ════════════════════════════
+   HOW IT WORKS
+════════════════════════════ */
+#how{background:var(--surface)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,28px);
+  margin-top:clamp(32px,5vw,52px)}
+.step{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,30px);position:relative}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;
+  font-size:.95rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.step-emoji{font-size:22px;position:absolute;top:22px;right:22px;opacity:.6}
+.step .h3{font-size:.95rem;margin-bottom:8px}
+@media(max-width:640px){.steps{grid-template-columns:1fr}}
 
-/* ══════════════════════════════════════════════
-   STEPS / HOW IT WORKS
-══════════════════════════════════════════════ */
-#how{background:var(--paper)}
-.steps-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  position:relative;margin-top:clamp(36px,5vw,56px)}
-.steps-line{position:absolute;top:34px;left:calc(100%/6);right:calc(100%/6);
-  height:2px;background:var(--blue-mid);z-index:0;pointer-events:none}
-.step{text-align:center;padding:0 clamp(12px,2.5vw,24px);position:relative;z-index:1}
-.step-num{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;
-  font-size:1rem;font-weight:800;display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;box-shadow:0 4px 16px rgba(37,99,235,.3);flex-shrink:0}
-.step-emoji{font-size:22px;display:block;margin-bottom:8px}
-
-@media(max-width:640px){
-  .steps-wrap{grid-template-columns:1fr;gap:clamp(24px,4vw,32px)}
-  .steps-line{display:none}
-  .step{text-align:left;display:flex;gap:16px;align-items:flex-start;padding:0}
-  .step-num{flex-shrink:0;margin:0;width:44px;height:44px;font-size:.9rem}
-  .step-body{flex:1}
-  .step-emoji{font-size:18px}
-}
-
-/* ══════════════════════════════════════════════
+/* ════════════════════════════
    FEATURES
-══════════════════════════════════════════════ */
-#features{background:var(--surface)}
-.feat-card{border:1px solid var(--border);border-radius:var(--r);
-  padding:clamp(20px,3vw,28px);background:var(--paper);transition:all .2s}
-.feat-card:hover{border-color:var(--blue-mid);
-  box-shadow:0 0 0 3px var(--blue-lt),var(--sh);transform:translateY(-2px)}
+════════════════════════════ */
+#features{background:#fff}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,18px);
+  margin-top:clamp(32px,5vw,48px)}
+.feat{border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(18px,3vw,24px);
+  transition:all .2s}
+.feat:hover{border-color:var(--blue-mid);box-shadow:0 0 0 3px var(--blue-lt);transform:translateY(-2px)}
+.feat-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;font-size:17px;margin-bottom:12px}
+.fi-blue{background:var(--blue-lt)}
+.fi-green{background:var(--green-lt)}
+.fi-amber{background:var(--amber-lt)}
+.feat .h3{margin-bottom:6px;font-size:.92rem}
+@media(max-width:820px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.feat-grid{grid-template-columns:1fr}}
 
 /* ══════════════════════════════════════════════
    WORKFLOW — PANELS DEMO
@@ -403,109 +328,114 @@ nav{position:sticky;top:0;z-index:200;
 
 @media(max-width:480px){.me-grid{grid-template-columns:repeat(4,1fr)}}
 
-/* ══════════════════════════════════════════════
-   BENEFITS (DARK)
-══════════════════════════════════════════════ */
-#benefits{background:var(--ink)}
-#benefits .eyebrow{color:#60A5FA}
-#benefits .h2{color:#fff}
-#benefits .body-lg{color:#9CA3AF}
-.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);
-  gap:2px;background:rgba(255,255,255,.06);border-radius:var(--r-lg);
-  overflow:hidden;margin-top:clamp(36px,5vw,52px)}
-.benefit-item{padding:clamp(20px,3vw,32px) clamp(16px,2.5vw,24px);
+/* ════════════════════════════
+   PAIN → SOLUTION (split)
+════════════════════════════ */
+#compare{background:#fff}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,28px);
+  margin-top:clamp(28px,4vw,44px)}
+.compare-col{border-radius:var(--r-lg);padding:clamp(22px,3vw,32px)}
+.compare-col.pain{background:#FFF5F5;border:1.5px solid #FECACA}
+.compare-col.gain{background:var(--blue-lt);border:1.5px solid var(--blue-mid)}
+.compare-col-hd{font-size:13px;font-weight:800;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px}
+.compare-col.pain .compare-col-hd{color:var(--red)}
+.compare-col.gain .compare-col-hd{color:var(--blue)}
+.compare-item{display:flex;align-items:flex-start;gap:10px;
+  font-size:.875rem;color:var(--ink2);margin-bottom:12px;line-height:1.5}
+.compare-item:last-child{margin-bottom:0}
+.compare-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+@media(max-width:640px){.compare-grid{grid-template-columns:1fr}}
+
+/* ════════════════════════════
+   IMPACT (dark)
+════════════════════════════ */
+#impact{background:var(--ink);color:#fff}
+#impact .eyebrow{color:#60A5FA}
+#impact .h2{color:#fff}
+#impact .body-lg{color:#9CA3AF}
+.impact-nums{display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-top:clamp(32px,5vw,52px);
+  background:rgba(255,255,255,.05);border-radius:var(--r-lg);overflow:hidden}
+.impact-item{padding:clamp(20px,3vw,32px) clamp(14px,2.5vw,24px);
   background:var(--ink);transition:background .2s}
-.benefit-item:hover{background:rgba(255,255,255,.04)}
-.benefit-num{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;
-  letter-spacing:-.04em;color:var(--blue);margin-bottom:8px;line-height:1}
-.benefit-item strong{display:block;color:#E5E7EB;font-weight:600;
-  font-size:.9375rem;margin-bottom:6px}
-.benefit-item p{font-size:.8125rem;color:#9CA3AF;line-height:1.6}
+.impact-item:hover{background:rgba(255,255,255,.04)}
+.impact-num{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;
+  letter-spacing:-.04em;color:var(--blue);margin-bottom:6px}
+.impact-item strong{color:#E5E7EB;font-weight:600;display:block;
+  font-size:.88rem;margin-bottom:4px}
+.impact-item p{font-size:.8rem;color:#9CA3AF;line-height:1.5}
+@media(max-width:820px){.impact-nums{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.impact-nums{grid-template-columns:1fr}}
 
-@media(max-width:900px){.benefits-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.benefits-grid{grid-template-columns:1fr}}
+/* ════════════════════════════
+   WHO
+════════════════════════════ */
+#who{background:var(--surface)}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,16px);
+  margin-top:clamp(28px,4vw,44px)}
+.who-card{text-align:center;background:#fff;border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:clamp(20px,3vw,28px) 16px;transition:all .2s}
+.who-card:hover{border-color:var(--blue-mid);background:var(--blue-lt)}
+.who-icon{font-size:30px;display:block;margin-bottom:10px}
+.who-card .h3{font-size:.9rem;margin-bottom:5px}
+@media(max-width:820px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.who-grid{grid-template-columns:1fr 1fr}}
 
-/* ══════════════════════════════════════════════
-   AUDIENCE
-══════════════════════════════════════════════ */
-#audience{background:var(--paper)}
-.audience-card{text-align:center;border:1px solid var(--border);
-  border-radius:var(--r);padding:clamp(24px,3.5vw,36px) clamp(16px,2.5vw,24px);
-  transition:all .2s;background:var(--paper)}
-.audience-card:hover{border-color:var(--blue-mid);background:var(--blue-lt);transform:translateY(-2px)}
-.audience-icon{font-size:clamp(28px,4vw,40px);margin-bottom:14px;display:block}
-
-/* ══════════════════════════════════════════════
-   TRUST BAR
-══════════════════════════════════════════════ */
-#trust{background:var(--surface);padding:clamp(36px,5vw,56px) 0}
-.trust-items{display:flex;align-items:center;justify-content:center;
-  gap:clamp(24px,5vw,56px);flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:10px;color:var(--ink3)}
-.trust-item svg{flex-shrink:0;color:var(--blue)}
-.trust-item span{font-size:.875rem;font-weight:500}
-
-/* ══════════════════════════════════════════════
+/* ════════════════════════════
    CTA
-══════════════════════════════════════════════ */
-#cta{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#2563EB 100%);
-  padding:clamp(72px,10vw,112px) 0;text-align:center;position:relative;overflow:hidden}
+════════════════════════════ */
+#cta{
+  background:linear-gradient(140deg,#1e3a8a 0%,#2563EB 100%);
+  padding:clamp(60px,9vw,96px) 0;text-align:center;position:relative;overflow:hidden}
 #cta::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,255,255,.09) 0%,transparent 70%);
-  pointer-events:none}
-#cta .h2{color:#fff;position:relative}
-#cta .body-lg{color:rgba(255,255,255,.75);position:relative}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
-  margin-top:clamp(24px,4vw,36px);position:relative}
-.trust-note{font-size:12.5px;color:rgba(255,255,255,.5);
-  margin-top:20px;position:relative;display:flex;align-items:center;
-  justify-content:center;gap:6px;flex-wrap:wrap;text-align:center}
-
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,255,255,.08) 0%,transparent 70%)}
+#cta .wrap{position:relative}
+#cta .h2{color:#fff}
+#cta .body-lg{color:rgba(255,255,255,.72);margin-top:12px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.trust-note{display:flex;align-items:center;justify-content:center;gap:6px;
+  font-size:11.5px;color:rgba(255,255,255,.45);margin-top:18px;flex-wrap:wrap}
 @media(max-width:480px){
-  .cta-btns{flex-direction:column;align-items:stretch}
+  .cta-btns{flex-direction:column;align-items:stretch;max-width:280px;margin-left:auto;margin-right:auto}
   .cta-btns .btn{justify-content:center}
 }
 
-/* ══════════════════════════════════════════════
+/* ════════════════════════════
    FOOTER
-══════════════════════════════════════════════ */
-footer{background:var(--ink);padding:clamp(36px,5vw,56px) 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:clamp(16px,3vw,24px)}
-.footer-logo{font-weight:800;font-size:1rem;color:#fff;
-  display:flex;align-items:center;gap:8px}
+════════════════════════════ */
+footer{background:var(--ink);color:#6B7280;padding:clamp(28px,4vw,44px) 0}
+.footer-inner{display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:18px}
+.footer-logo{display:flex;align-items:center;gap:8px;
+  font-weight:800;font-size:.9rem;color:#fff;letter-spacing:-.02em}
 .footer-logo span{color:var(--blue)}
-.footer-tag{font-size:12px;font-weight:400;color:#4B5563;margin-left:4px}
-.footer-links{display:flex;gap:clamp(16px,3vw,24px);flex-wrap:wrap}
-.footer-links a{font-size:13px;color:#6B7280;transition:color .15s}
+.footer-links{display:flex;gap:clamp(12px,2vw,20px);flex-wrap:wrap}
+.footer-links a{font-size:12px;color:#6B7280;transition:color .14s}
 .footer-links a:hover{color:#D1D5DB}
-.footer-copy{font-size:12px;color:#4B5563}
-
-@media(max-width:640px){
-  .footer-inner{flex-direction:column;text-align:center;align-items:center}
+.footer-copy{font-size:11px}
+@media(max-width:600px){
+  .footer-inner{flex-direction:column;text-align:center;gap:14px}
   .footer-links{justify-content:center}
 }
 
-/* ══════════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-}
+/* ════════════════════════════
+   SECTION HEADER util
+════════════════════════════ */
+.sec-hd{margin-bottom:clamp(28px,4vw,44px)}
+.sec-hd .h2{margin-top:10px}
+.sec-hd .body-lg{margin-top:10px;max-width:560px}
+.sec-hd.tc .body-lg{margin-left:auto;margin-right:auto}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════
-     NAV
-══════════════════════════════════════════════ -->
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2">
+      <div class="nav-logo-mark">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4">
           <rect x="3" y="3" width="7" height="7" rx="1.5"/>
           <rect x="14" y="3" width="7" height="7" rx="1.5"/>
           <rect x="3" y="14" width="7" height="7" rx="1.5"/>
@@ -515,356 +445,282 @@ footer{background:var(--ink);padding:clamp(36px,5vw,56px) 0}
       Smart<span>OMR</span>
     </a>
     <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#workflow">How It Works</a></li>
-      <li><a href="#benefits">Impact</a></li>
-      <li><a href="#audience">Who It's For</a></li>
+      <li><a href="#preview">Preview</a></li>
+      <li><a href="#who">Who It's For</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#workflow" class="btn btn-ghost btn-sm">See Demo</a>
-      <a href="#cta" class="btn btn-primary btn-sm">Request Access</a>
-      <button class="nav-hamburger" id="nav-toggle" aria-label="Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
+      <a href="#preview" class="btn btn-ghost" style="padding:8px 14px;font-size:.82rem">See Demo</a>
+      <a href="#cta" class="btn btn-primary" style="padding:9px 16px;font-size:.83rem">Request Access</a>
     </div>
-  </div>
-  <div class="nav-mobile-menu" id="nav-mobile-menu">
-    <ul class="nav-mobile-links">
-      <li><a href="#features" onclick="closeMobileMenu()">Features</a></li>
-      <li><a href="#workflow" onclick="closeMobileMenu()">How It Works</a></li>
-      <li><a href="#benefits" onclick="closeMobileMenu()">Impact</a></li>
-      <li><a href="#audience" onclick="closeMobileMenu()">Who It's For</a></li>
-    </ul>
-    <div class="nav-mobile-btns">
-      <a href="#workflow" class="btn btn-ghost" onclick="closeMobileMenu()">See Demo</a>
-      <a href="#cta" class="btn btn-primary" onclick="closeMobileMenu()">Request Access</a>
-    </div>
+    <button class="nav-ham" id="nav-ham" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-drawer" id="nav-drawer">
+  <ul class="nav-drawer-links">
+    <li><a href="#how" onclick="closeDrawer()">How It Works</a></li>
+    <li><a href="#features" onclick="closeDrawer()">Features</a></li>
+    <li><a href="#preview" onclick="closeDrawer()">Preview</a></li>
+    <li><a href="#who" onclick="closeDrawer()">Who It's For</a></li>
+  </ul>
+  <div class="nav-drawer-btns">
+    <a href="#preview" class="btn btn-ghost" onclick="closeDrawer()">See Demo</a>
+    <a href="#cta" class="btn btn-primary" onclick="closeDrawer()">Request Access</a>
+  </div>
+</div>
 
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
+
+<!-- HERO -->
 <section id="hero">
   <div class="wrap">
-    <div class="hero-grid">
-
-      <!-- Left -->
-      <div class="hero-content">
-        <div class="hero-badge">
-          <div style="width:7px;height:7px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite"></div>
-          Now available for institutions
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Built for Bangladesh institutions</div>
+        <h1 class="display">Grade 500 sheets<br>in under <em>10 minutes.</em></h1>
+        <p class="body-lg hero-sub">Upload a folder of OMR photos. SmartOMR reads every sheet, scores every answer, and hands you an Excel export — fully automatic.</p>
+        <div class="hero-cta">
+          <a href="#cta" class="btn btn-primary btn-lg">Get a Free Demo</a>
+          <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
         </div>
-        <h1 class="display mt-5">
-          Grade 500 OMR sheets in the time it takes to mark <em>one.</em>
-        </h1>
-        <p class="body-lg mt-6">
-          SmartOMR automatically reads, scores, and exports exam results from photos or scans — with a Student Panel for learners and a full Teacher Dashboard for administrators.
-        </p>
-        <div class="btn-group mt-8">
-          <a href="#cta" class="btn btn-primary btn-lg">Request a Free Demo</a>
-          <a href="#workflow" class="btn btn-ghost btn-lg">See How It Works</a>
-        </div>
-        <div class="hero-stats mt-10">
-          <div>
-            <div class="stat-num">95%</div>
-            <div class="stat-lbl">Faster than<br>manual grading</div>
+        <div class="hero-proof">
+          <div class="proof-item">
+            <div class="num">95%</div>
+            <div class="lbl">Faster than<br>manual grading</div>
           </div>
-          <div>
-            <div class="stat-num">99.8%</div>
-            <div class="stat-lbl">Bubble detection<br>accuracy</div>
+          <div class="proof-item">
+            <div class="num">99.8%</div>
+            <div class="lbl">Bubble detection<br>accuracy</div>
           </div>
-          <div>
-            <div class="stat-num">&lt; 2s</div>
-            <div class="stat-lbl">Per sheet,<br>fully automated</div>
+          <div class="proof-item">
+            <div class="num">&lt;2s</div>
+            <div class="lbl">Per sheet,<br>automated</div>
           </div>
         </div>
       </div>
-
-      <!-- Right — App Mockup -->
-      <div class="hero-mockup-wrap">
-        <div class="app-mockup">
-          <div class="mockup-bar">
-            <span class="mac-dot mac-r"></span>
-            <span class="mac-dot mac-y"></span>
-            <span class="mac-dot mac-g"></span>
-            <span class="mockup-bar-label">SmartOMR Assess · Teacher Panel</span>
+      <div class="hero-mockup">
+        <div class="mockup">
+          <div class="mbar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+            <span class="mbar-title">SmartOMR · Batch Scan</span>
           </div>
-          <div class="mockup-body-wrap">
-            <!-- Mini sidebar -->
-            <div class="mockup-sidebar">
-              <div class="sidebar-btn active">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="mbody">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)">Teacher Panel · 6 Sheets</div>
+            <div style="background:var(--surface);border:1.5px dashed var(--blue-mid);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:9px">
+              <div class="sheet-row">
+                <div class="sheet-thumb"></div>
+                <div class="sheet-info">
+                  <div class="sheet-name">IMG_0421.jpg</div>
+                  <div class="sheet-sub">ID: 18702051 · Set A · QR ✓</div>
+                </div>
+                <span class="sbadge sbadge-done">✓ Done</span>
               </div>
-              <div class="sidebar-btn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <div class="sheet-row">
+                <div class="sheet-thumb" style="background:linear-gradient(135deg,#dce4f5,#c8d4ec)"></div>
+                <div class="sheet-info">
+                  <div class="sheet-name">IMG_0422.jpg</div>
+                  <div class="sheet-sub">ID: 18702052 · Set B · QR ✓</div>
+                </div>
+                <span class="sbadge sbadge-done">✓ Done</span>
+              </div>
+              <div class="sheet-row">
+                <div class="sheet-thumb" style="background:linear-gradient(135deg,#e4eaff,#d4dcff)"></div>
+                <div class="sheet-info">
+                  <div class="sheet-name">IMG_0423.jpg</div>
+                  <div class="sheet-sub">Processing…</div>
+                </div>
+                <span class="sbadge sbadge-proc">⟳ Scanning</span>
               </div>
             </div>
-            <!-- Content -->
-            <div class="mockup-content">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-                <span style="font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em">Batch Upload · Exam EEE111_CT1</span>
-                <span class="pill pill-live">Live</span>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);margin-bottom:5px">
+                <span>Scanning batch…</span><span>2 / 6 done</span>
               </div>
-              <div class="scan-row">
-                <div class="scan-thumb"></div>
-                <div class="scan-info">
-                  <div class="scan-name">STU-18702051 · Set A</div>
-                  <div class="scan-meta">ID detected · QR verified</div>
+              <div style="height:4px;background:var(--surface2);border-radius:99px;overflow:hidden">
+                <div style="height:100%;width:40%;background:linear-gradient(90deg,var(--blue),#60A5FA);border-radius:99px;transition:width .6s"></div>
+              </div>
+            </div>
+            <div class="score-row">
+              <div>
+                <div style="font-size:10px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">18702051 · Set A</div>
+                <div class="bubbles">
+                  <div class="bub bub-ok">A</div><div class="bub bub-ok">B</div>
+                  <div class="bub bub-no">C</div><div class="bub bub-ok">D</div>
+                  <div class="bub bub-ok">A</div><div class="bub bub-ok">B</div>
+                  <div class="bub bub-no">A</div><div class="bub bub-ok">C</div>
                 </div>
-                <span class="scan-score" style="color:var(--green)">38/40</span>
               </div>
-              <div class="scan-row">
-                <div class="scan-thumb" style="background:linear-gradient(135deg,#dce8f5,#c4d5ec)"></div>
-                <div class="scan-info">
-                  <div class="scan-name">STU-18702052 · Set B</div>
-                  <div class="scan-meta">ID detected · QR verified</div>
-                </div>
-                <span class="scan-score" style="color:var(--blue)">31/40</span>
-              </div>
-              <div class="scan-row">
-                <div class="scan-thumb" style="background:linear-gradient(135deg,#e8efff,#d4e0ff)"></div>
-                <div class="scan-info">
-                  <div class="scan-name">STU-18702053 · Set A</div>
-                  <div class="scan-meta">Processing…</div>
-                </div>
-                <span class="pill pill-amber">⟳</span>
-              </div>
-              <div class="prog-row mt-4">
-                <span>Processing batch…</span><span>2 / 6 complete</span>
-              </div>
-              <div class="p-bar"><div class="p-fill" style="width:33%"></div></div>
-              <div style="display:flex;gap:8px;margin-top:12px">
-                <button class="btn btn-primary btn-sm" style="font-size:10px;padding:7px 13px;pointer-events:none">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Export Result
-                </button>
-                <button class="btn btn-ghost btn-sm" style="font-size:10px;padding:7px 13px;pointer-events:none">Answer</button>
+              <div style="text-align:right">
+                <div class="score-big">38<span style="font-size:.7rem;font-weight:400;color:var(--ink3)"> / 40</span></div>
+                <div class="score-pct">95% · Excellent</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<!-- USP STRIP -->
+<div id="usp">
+  <div class="usp-strip">
+    <div class="usp-item">
+      <span class="usp-icon">⚡</span>
+      <div class="usp-text">
+        <strong>Under 2 seconds per sheet</strong>
+        <span>What takes a teacher hours, done in minutes</span>
+      </div>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">📱</span>
+      <div class="usp-text">
+        <strong>Phone photo is enough</strong>
+        <span>No scanner needed — works from any camera</span>
+      </div>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">📊</span>
+      <div class="usp-text">
+        <strong>Excel export, one click</strong>
+        <span>Results ready for records the moment scanning ends</span>
+      </div>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">🔒</span>
+      <div class="usp-text">
+        <strong>Multi-set, zero confusion</strong>
+        <span>QR codes auto-match sheets to the right answer key</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- ══════════════════════════════════════════════
-     TRUST BAR
-══════════════════════════════════════════════ -->
-<section id="trust">
+<hr class="divider">
+
+<!-- BEFORE / AFTER -->
+<section id="compare">
   <div class="wrap">
-    <div class="trust-items">
-      <div class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>No special hardware needed</span>
+    <div class="sec-hd tc">
+      <div class="wrap-sm">
+        <div class="eyebrow">The Shift</div>
+        <h2 class="h2">You deserve better than 3-day marking cycles.</h2>
+        <p class="body-lg">Every exam season, institutions lose days — and morale — to a process that should take minutes.</p>
       </div>
-      <div class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-        <span>Works with phone photos &amp; scans</span>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col pain reveal">
+        <div class="compare-col-hd">❌ Without SmartOMR</div>
+        <div class="compare-item"><span class="compare-icon">⏳</span>200 sheets = 2–4 working days of staff time, every exam cycle</div>
+        <div class="compare-item"><span class="compare-icon">🤦</span>Fatigue-driven errors that take even longer to find and fix</div>
+        <div class="compare-item"><span class="compare-icon">📦</span>Hundreds of sheets pile up — deadlines slip, results get delayed</div>
+        <div class="compare-item"><span class="compare-icon">📋</span>Scores stuck on paper, requiring yet another manual step to compile</div>
       </div>
-      <div class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        <span>Real-time SSE progress streaming</span>
-      </div>
-      <div class="trust-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span>One-click Excel export</span>
+      <div class="compare-col gain reveal">
+        <div class="compare-col-hd">✅ With SmartOMR</div>
+        <div class="compare-item"><span class="compare-icon">⚡</span>200 sheets scanned and scored in under 7 minutes</div>
+        <div class="compare-item"><span class="compare-icon">🎯</span>99.8% accuracy — no human fatigue, no misaligned keys</div>
+        <div class="compare-item"><span class="compare-icon">📂</span>Drop a folder, hit Start — process any size batch without slowdown</div>
+        <div class="compare-item"><span class="compare-icon">📥</span>Answer + Result Excel files exported automatically when done</div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<hr class="divider">
 
-<!-- ══════════════════════════════════════════════
-     PROBLEM
-══════════════════════════════════════════════ -->
-<section id="problem">
-  <div class="wrap">
-    <div class="sec-hd">
-      <div class="eyebrow">The Problem</div>
-      <h2 class="h2 mt-3">Manual grading is costing you more than time.</h2>
-      <p class="body-lg mt-4" style="max-width:580px">Every exam cycle, institutions absorb the hidden cost of slow, error-prone, and exhausting OMR evaluation.</p>
-    </div>
-    <div class="grid-2">
-      <div class="pain-card reveal">
-        <span class="pain-icon">⏳</span>
-        <div class="h3">Hours lost per exam cycle</div>
-        <p class="body mt-3">A single exam with 200 students can consume 2–4 full working days of staff time — time better spent on teaching and student support, not counting bubbles.</p>
-      </div>
-      <div class="pain-card reveal">
-        <span class="pain-icon">❌</span>
-        <div class="h3">Human errors are unavoidable</div>
-        <p class="body mt-3">Fatigue, misaligned answer keys, and marking slip-ups introduce errors that take longer to find and correct than they would have taken to prevent entirely.</p>
-      </div>
-      <div class="pain-card reveal">
-        <span class="pain-icon">📦</span>
-        <div class="h3">Scale brings chaos</div>
-        <p class="body mt-3">When hundreds of sheets arrive at once, the workflow collapses. Deadlines slip. Results are delayed. Institutions lose credibility with students and parents.</p>
-      </div>
-      <div class="pain-card reveal">
-        <span class="pain-icon">🗂️</span>
-        <div class="h3">Results trapped in paper</div>
-        <p class="body mt-3">Compiling scores into usable records — for analysis, reporting, or student communication — adds yet another manual step that nobody has capacity for.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ══════════════════════════════════════════════
-     HOW IT WORKS
-══════════════════════════════════════════════ -->
+<!-- HOW IT WORKS -->
 <section id="how">
   <div class="wrap">
-    <div class="sec-hd centered">
-      <div class="eyebrow">The Solution</div>
-      <h2 class="h2 mt-3">Upload sheets. Get results. Done.</h2>
-      <p class="body-lg mt-4">SmartOMR eliminates every manual step between collecting answer sheets and receiving accurate, exportable results.</p>
+    <div class="sec-hd tc">
+      <div class="wrap-sm">
+        <div class="eyebrow">How It Works</div>
+        <h2 class="h2">Three steps. That's it.</h2>
+        <p class="body-lg">From photo to results in under 2 seconds per sheet — no setup, no alignment, no preprocessing.</p>
+      </div>
     </div>
-    <div class="steps-wrap">
-      <div class="steps-line"></div>
+    <div class="steps">
       <div class="step reveal">
         <div class="step-num">1</div>
-        <div class="step-body">
-          <span class="step-emoji">📤</span>
-          <div class="h3">Upload Sheets</div>
-          <p class="body mt-3">Take a photo or scan. Upload one sheet or an entire folder. SmartOMR accepts images from any device — phone camera, flatbed scanner, or document camera.</p>
-        </div>
+        <span class="step-emoji">📤</span>
+        <div class="h3">Upload Sheets</div>
+        <p class="body" style="margin-top:7px">Take a photo with your phone or scan and upload. Drop a single sheet (Student Panel) or an entire folder (Teacher Panel). Works from any device.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">2</div>
-        <div class="step-body">
-          <span class="step-emoji">⚡</span>
-          <div class="h3">Automatic Processing</div>
-          <p class="body mt-3">SmartOMR detects the student ID, reads the QR exam set code, extracts every marked answer, and applies the correct answer key — all in under 2 seconds per sheet.</p>
-        </div>
+        <span class="step-emoji">⚡</span>
+        <div class="h3">Auto Processing</div>
+        <p class="body" style="margin-top:7px">SmartOMR detects the student ID, reads the QR set code, extracts every answer, and calculates the score — in under 2 seconds per sheet.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">3</div>
-        <div class="step-body">
-          <span class="step-emoji">📊</span>
-          <div class="h3">Instant Results</div>
-          <p class="body mt-3">Scores appear in real time via the live progress panel. Review on-screen or download a structured Excel export — answers and results, both ready instantly.</p>
-        </div>
+        <span class="step-emoji">📊</span>
+        <div class="h3">Get Results</div>
+        <p class="body" style="margin-top:7px">Scores appear instantly. Export Answer and Result Excel files in one click — structured, accurate, and ready for records.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<hr class="divider">
 
-<!-- ══════════════════════════════════════════════
-     FEATURES
-══════════════════════════════════════════════ -->
+<!-- FEATURES -->
 <section id="features">
   <div class="wrap">
-    <div class="sec-hd centered">
-      <div class="eyebrow">Features</div>
-      <h2 class="h2 mt-3">Everything you need. Nothing you don't.</h2>
-      <p class="body-lg mt-4">Every feature is designed for one goal — accurate exam results, as fast as possible.</p>
+    <div class="sec-hd tc">
+      <div class="wrap-sm">
+        <div class="eyebrow">Features</div>
+        <h2 class="h2">Built for real exam workflows.</h2>
+        <p class="body-lg">Every feature exists to solve a real problem your institution faces today.</p>
+      </div>
     </div>
-    <div class="grid-3">
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon indigo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-          </div>
-          <div class="h3">Automated OMR Detection</div>
-        </div>
-        <p class="body">SmartOMR finds and reads marked bubbles from any image — no manual alignment or special scanning required. Works with phone photos and flatbed scans alike.</p>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="feat-icon fi-blue">🔍</div>
+        <div class="h3">OMR Bubble Detection</div>
+        <p class="body" style="margin-top:6px">Reads filled bubbles from phone photos automatically. No alignment needed.</p>
       </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div class="h3">Student ID Recognition</div>
-        </div>
-        <p class="body">Each sheet is matched to a student via their bubble-filled ID number — ensuring results are always tied to the right person, without any manual entry.</p>
+      <div class="feat reveal">
+        <div class="feat-icon fi-blue">🪪</div>
+        <div class="h3">Student ID Recognition</div>
+        <p class="body" style="margin-top:6px">Matches every sheet to the right student via the bubble-filled ID section.</p>
       </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h1v6H9M14 9h1.5a1.5 1.5 0 0 1 0 3H14v3"/></svg>
-          </div>
-          <div class="h3">QR-Based Exam Set Detection</div>
-        </div>
-        <p class="body">Multiple exam sets in one session? SmartOMR reads the QR code on each sheet and automatically applies the correct answer key — no manual sorting required.</p>
+      <div class="feat reveal">
+        <div class="feat-icon fi-green">📱</div>
+        <div class="h3">QR Set Code Detection</div>
+        <p class="body" style="margin-top:6px">Running Set A, B, C? Each sheet's QR code auto-applies the correct answer key.</p>
       </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div class="h3">Instant Score Calculation</div>
-        </div>
-        <p class="body">Scores are computed the moment a sheet is processed. Results stream live via the progress panel — no waiting, no batch delays, no manual tallying.</p>
+      <div class="feat reveal">
+        <div class="feat-icon fi-blue">📦</div>
+        <div class="h3">Batch Folder Upload</div>
+        <p class="body" style="margin-top:6px">Drop hundreds of images at once. SmartOMR processes them in parallel with a live progress log.</p>
       </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="h3">Batch Folder Processing</div>
-        </div>
-        <p class="body">Upload an entire folder of images at once. SmartOMR processes every sheet in sequence — turning a full-day grading job into a task that finishes before your next meeting.</p>
+      <div class="feat reveal">
+        <div class="feat-icon fi-amber">✏️</div>
+        <div class="h3">Manual Entry Fallback</div>
+        <p class="body" style="margin-top:6px">Blurry or torn sheet? SmartOMR flags it and opens a zoomable viewer so you can enter it manually.</p>
       </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon indigo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          </div>
-          <div class="h3">Manual Entry for Edge Cases</div>
-        </div>
-        <p class="body">When a sheet is unreadable due to damage or poor image quality, the built-in manual entry modal lets you enter answers directly — so no student result is ever lost.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          </div>
-          <div class="h3">Excel Answer Key Upload</div>
-        </div>
-        <p class="body">Upload your answer key as an Excel file (.xlsx). SmartOMR parses it automatically and applies it to every sheet in the session — supporting multiple exam sets.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-          <div class="h3">Dual Excel Export</div>
-        </div>
-        <p class="body">Export two reports per session: an <strong>Answer sheet</strong> with every student's selected answers per question, and a <strong>Result sheet</strong> with final scores — both in clean Excel format.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="card-hd">
-          <div class="card-icon indigo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <div class="h3">Secure Teacher Dashboard</div>
-        </div>
-        <p class="body">Teachers log in with a username and PIN to access exam management. Create exams, manage answer keys, view all session reports, and control exam status — all in one dashboard.</p>
+      <div class="feat reveal">
+        <div class="feat-icon fi-green">📥</div>
+        <div class="h3">Two Excel Exports</div>
+        <p class="body" style="margin-top:6px">Answer file (every detected bubble) and Result file (scores + pass/fail) — one click each.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<hr class="divider">
 
 <!-- ══════════════════════════════════════════════
      WORKFLOW PANELS DEMO
 ══════════════════════════════════════════════ -->
 <section id="workflow">
   <div class="wrap">
-    <div class="sec-hd centered">
+    <div class="sec-hd tc">
       <div class="eyebrow">See It In Action</div>
       <h2 class="h2 mt-3">Two panels. One seamless workflow.</h2>
       <p class="body-lg mt-4">SmartOMR has a dedicated <strong>Student Panel</strong> for single-sheet scanning and a full <strong>Teacher Dashboard</strong> for managing exams, batch processing, and exports.</p>
@@ -873,7 +729,7 @@ footer{background:var(--ink);padding:clamp(36px,5vw,56px) 0}
     <!-- Tabs -->
     <div class="workflow-tabs">
       <button class="workflow-tab active" onclick="showPanel('student')">📋 Student Panel</button>
-      <button class="workflow-tab" onclick="showPanel('folder')">📁 Batch Processing</button>
+      <button class="workflow-tab" onclick="showPanel('folder')">📁 Folder Processing</button>
       <button class="workflow-tab" onclick="showPanel('results')">📊 Scan Results</button>
       <button class="workflow-tab" onclick="showPanel('export')">📥 Export</button>
       <button class="workflow-tab" onclick="showPanel('manual')">✏️ Manual Entry</button>
@@ -952,7 +808,7 @@ footer{background:var(--ink);padding:clamp(36px,5vw,56px) 0}
     <div class="workflow-panel" id="wp-folder">
       <div>
         <div class="eyebrow mt-2">Teacher Dashboard</div>
-        <h3 class="h3 mt-3">Batch folder processing at scale</h3>
+        <h3 class="h3 mt-3">Folder processing at scale</h3>
         <p class="body mt-4">Teachers upload an entire folder of OMR sheet images at once. SmartOMR processes every sheet in sequence, streaming live progress updates — no refresh required.</p>
         <ul style="list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px">
           <li style="display:flex;align-items:flex-start;gap:10px">
@@ -1166,141 +1022,137 @@ footer{background:var(--ink);padding:clamp(36px,5vw,56px) 0}
   </div>
 </section>
 
-<hr class="section-divider">
+<hr class="divider">
 
-<!-- ══════════════════════════════════════════════
-     BENEFITS
-══════════════════════════════════════════════ -->
-<section id="benefits">
+<!-- IMPACT -->
+<section id="impact">
   <div class="wrap">
-    <div class="sec-hd centered">
-      <div class="eyebrow">Measurable Impact</div>
-      <h2 class="h2 mt-3">The numbers speak for themselves.</h2>
-      <p class="body-lg mt-4">SmartOMR doesn't just save time. It changes how your institution operates at scale.</p>
+    <div class="sec-hd tc">
+      <div class="wrap-sm">
+        <div class="eyebrow">Measurable Impact</div>
+        <h2 class="h2">The numbers your institution cares about.</h2>
+        <p class="body-lg">SmartOMR doesn't just save time. It changes how your institution operates at scale.</p>
+      </div>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-item reveal">
-        <div class="benefit-num">95%</div>
+    <div class="impact-nums">
+      <div class="impact-item reveal">
+        <div class="impact-num">95%</div>
         <strong>Faster grading</strong>
-        <p>What used to take days now takes minutes. Redeploy your staff where they matter most.</p>
+        <p>Days of work done in minutes. Redeploy staff where they matter most.</p>
       </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-num">Zero</div>
+      <div class="impact-item reveal">
+        <div class="impact-num">Zero</div>
         <strong>Marking errors</strong>
-        <p>Automated detection eliminates the slip-ups, misalignments, and fatigue-driven mistakes of manual checking.</p>
+        <p>No fatigue, no misalignments, no re-checking. Results you can trust.</p>
       </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-num">∞</div>
+      <div class="impact-item reveal">
+        <div class="impact-num">∞</div>
         <strong>Scales with you</strong>
-        <p>50 students or 5,000 — SmartOMR handles batches of any size without degrading in speed or accuracy.</p>
+        <p>50 students or 5,000 — same speed, same accuracy, no slowdown.</p>
       </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-num">2-click</div>
-        <strong>Export Answer &amp; Result</strong>
-        <p>Two structured Excel files — answers and scores — ready for your records system immediately after processing.</p>
+      <div class="impact-item reveal">
+        <div class="impact-num">2</div>
+        <strong>Clicks to export</strong>
+        <p>Answer file and Result file ready the moment scanning ends.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider" style="border-color:rgba(255,255,255,.06)">
-
-<!-- ══════════════════════════════════════════════
-     AUDIENCE
-══════════════════════════════════════════════ -->
-<section id="audience">
+<!-- WHO -->
+<section id="who">
   <div class="wrap">
-    <div class="sec-hd centered">
-      <div class="eyebrow">Who It's For</div>
-      <h2 class="h2 mt-3">Built for every institution that runs exams.</h2>
-      <p class="body-lg mt-4">If you conduct evaluations at any scale, SmartOMR is designed for you.</p>
+    <div class="sec-hd tc">
+      <div class="wrap-sm">
+        <div class="eyebrow">Who It's For</div>
+        <h2 class="h2">Any institution that runs exams.</h2>
+      </div>
     </div>
-    <div class="grid-4">
-      <div class="audience-card reveal">
-        <span class="audience-icon">🏫</span>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <span class="who-icon">🏫</span>
         <div class="h3">Schools</div>
-        <p class="body mt-3">Grade class tests and term exams without pulling teachers away from teaching.</p>
+        <p class="body" style="margin-top:5px">Grade class tests without pulling teachers off teaching.</p>
       </div>
-      <div class="audience-card reveal">
-        <span class="audience-icon">🎓</span>
+      <div class="who-card reveal">
+        <span class="who-icon">🎓</span>
         <div class="h3">Colleges</div>
-        <p class="body mt-3">Handle multi-section exams across departments with one unified workflow.</p>
+        <p class="body" style="margin-top:5px">Handle multi-section exams across departments in one go.</p>
       </div>
-      <div class="audience-card reveal">
-        <span class="audience-icon">🏛️</span>
+      <div class="who-card reveal">
+        <span class="who-icon">🏛️</span>
         <div class="h3">Universities</div>
-        <p class="body mt-3">Process large-scale semester exams and entrance tests at institutional speed.</p>
+        <p class="body" style="margin-top:5px">Process large semester and entrance exams at scale.</p>
       </div>
-      <div class="audience-card reveal">
-        <span class="audience-icon">📚</span>
+      <div class="who-card reveal">
+        <span class="who-icon">📚</span>
         <div class="h3">Coaching Centers</div>
-        <p class="body mt-3">Run weekly mock tests and return results to students before the session ends.</p>
+        <p class="body" style="margin-top:5px">Return weekly mock test results before students leave.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<hr class="divider">
 
-<!-- ══════════════════════════════════════════════
-     CTA
-══════════════════════════════════════════════ -->
+<!-- CTA -->
 <section id="cta">
-  <div class="wrap" style="position:relative">
-    <div class="eyebrow" style="color:rgba(255,255,255,.45);text-align:center">Get Started</div>
-    <h2 class="h2 mt-3">Your next exam cycle<br>shouldn't need a grading team.</h2>
-    <p class="body-lg mt-5">See SmartOMR in action with your own exam sheets.<br>Free demo, no commitment required.</p>
+  <div class="wrap">
+    <div class="eyebrow" style="color:rgba(255,255,255,.4);margin-bottom:12px">Get Started</div>
+    <h2 class="h2">Your next exam shouldn't<br>need a grading team.</h2>
+    <p class="body-lg">See SmartOMR with your own sheets. Free demo, no commitment.</p>
     <div class="cta-btns">
       <a href="mailto:hello@smartomr.com" class="btn btn-white btn-lg">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Request a Free Demo
       </a>
       <a href="mailto:sales@smartomr.com" class="btn btn-outline-white btn-lg">Talk to Sales</a>
     </div>
     <div class="trust-note">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Trusted by institutions · Deployed on secure cloud infrastructure · Built with Django &amp; OpenCV
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Secure cloud · Built with Django &amp; OpenCV · by uPrint BD · v1.0.2
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-inner">
       <div class="footer-logo">
-        <div style="width:24px;height:24px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <div style="width:22px;height:22px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         </div>
         Smart<span>OMR</span>
-        <span class="footer-tag">by uPrint BD</span>
+        <span style="font-size:11px;font-weight:400;color:#4B5563;margin-left:4px">by uPrint BD</span>
       </div>
       <nav class="footer-links">
+        <a href="#how">How It Works</a>
         <a href="#features">Features</a>
-        <a href="#workflow">How It Works</a>
-        <a href="#audience">Who It's For</a>
-        <a href="#cta">Contact</a>
+        <a href="#preview">Preview</a>
+        <a href="#who">Who It's For</a>
         <a href="mailto:hello@smartomr.com">hello@smartomr.com</a>
       </nav>
-      <div class="footer-copy">© 2025 SmartOMR. All rights reserved.</div>
+      <div class="footer-copy">© 2025 SmartOMR · All rights reserved.</div>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════
-     JS
-══════════════════════════════════════════════ -->
 <script>
-/* ── Mobile nav ── */
-const toggle = document.getElementById('nav-toggle');
-const mobileMenu = document.getElementById('nav-mobile-menu');
-toggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+/* Nav hamburger */
+const ham = document.getElementById('nav-ham');
+const drawer = document.getElementById('nav-drawer');
+ham.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 });
-function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+function closeDrawer() {
+  drawer.classList.remove('open');
+  ham.classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.addEventListener('resize', () => { if (window.innerWidth > 820) closeDrawer(); });
 
 /* ── Workflow tabs ── */
 function showPanel(id) {
@@ -1310,22 +1162,13 @@ function showPanel(id) {
   event.currentTarget.classList.add('active');
 }
 
-/* ── Scroll reveal ── */
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
+/* Scroll reveal */
+const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
   });
-}, { threshold: 0.1 });
-revealEls.forEach(el => observer.observe(el));
-
-/* ── Close mobile menu on resize ── */
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) closeMobileMenu();
-});
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
