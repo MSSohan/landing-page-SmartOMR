@@ -118,16 +118,16 @@ button {
 .wrap {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 5vw, 40px)
+    padding: 0 clamp(2px, 5vw, 5px)
 }
 
 .wrap-sm {
-    max-width: 640px;
+    max-width: 700px;
     margin: 0 auto
 }
 
 section {
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .sec-hd {
@@ -284,7 +284,7 @@ nav {
 .nav-inner {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 5vw, 40px);
+    padding: 0 clamp(2px, 5vw, 5px);
     height: 56px;
     display: flex;
     align-items: center;
@@ -378,7 +378,7 @@ nav {
     background: #fff;
     z-index: 399;
     overflow-y: auto;
-    padding: 16px clamp(16px, 5vw, 40px) 32px;
+    padding: 16px clamp(15px, 5vw, 40px) 32px;
     border-top: 1px solid var(--border)
 }
 
@@ -430,7 +430,7 @@ nav {
  HERO  — dark gradient bg
 ════════════════════════════════════ */
 #hero {
-    padding: clamp(48px, 8vw, 80px) 0 clamp(40px, 6vw, 64px);
+    padding: clamp(5px, 8vw, 40px) 0 clamp(30px, 6vw, 30px);
     background: linear-gradient(135deg, #0A0F1E 0%, #0f1a3a 50%, #0d1635 100%);
     position: relative;
     overflow: hidden
@@ -879,7 +879,7 @@ nav {
 ════════════════════════════════════ */
 #compare {
     background: var(--surface);
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .compare-grid {
@@ -947,7 +947,7 @@ nav {
 ════════════════════════════════════ */
 #who {
     background: var(--paper);
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .who-grid {
@@ -996,7 +996,7 @@ nav {
 ════════════════════════════════════ */
 #how {
     background: var(--surface);
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .steps {
@@ -1080,7 +1080,7 @@ nav {
 ════════════════════════════════════ */
 #features {
     background: var(--paper);
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .feat-grid {
@@ -1156,7 +1156,7 @@ nav {
 ════════════════════════════════════ */
 #workflow {
     background: var(--surface);
-    padding: clamp(52px, 7vw, 80px) 0
+    padding: clamp(15px, 7vw, 50px) 0
 }
 
 .workflow-tabs {
@@ -1539,7 +1539,7 @@ nav {
 ════════════════════════════════════ */
 #phone-feat {
     background: linear-gradient(135deg, #0A0F1E 0%, #0f1a3a 60%, #0d1635 100%);
-    padding: clamp(52px, 7vw, 80px) 0;
+    padding: clamp(15px, 7vw, 50px) 0;
     position: relative;
     overflow: hidden
 }
