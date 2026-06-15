@@ -1,31 +1,32 @@
 :root {
-    --blue: #2563EB;
-    --blue-dk: #1d4ed8;
-    --blue-lt: #EFF4FF;
-    --blue-mid: #BFCFFE;
-    --green: #16A34A;
-    --green-lt: #DCFCE7;
-    --green-dk: #15803d;
-    --amber: #D97706;
-    --amber-lt: #FEF3C7;
-    --indigo: #4F46E5;
-    --indigo-lt: #EEF2FF;
-    --red: #DC2626;
-    --red-lt: #FEF2F2;
-    --ink: #0A0F1E;
-    --ink2: #374151;
-    --ink3: #6B7280;
-    --paper: #fff;
-    --surface: #F7F8FC;
-    --surface2: #ECEEF4;
-    --border: #E4E7EF;
-    --r-sm: 6px;
-    --r: 10px;
-    --r-lg: 16px;
-    --r-xl: 22px;
-    --sh: 0 4px 20px rgba(0, 0, 0, .07), 0 1px 4px rgba(0, 0, 0, .04);
-    --sh-lg: 0 12px 48px rgba(0, 0, 0, .10), 0 4px 12px rgba(0, 0, 0, .05);
-    --sh-xl: 0 24px 72px rgba(0, 0, 0, .12), 0 8px 24px rgba(0, 0, 0, .06);
+    --blue: #1E5AE8;
+    --blue-dk: #1648C7;
+    --blue-lt: #EDF2FF;
+    --blue-mid: #B8CAFE;
+    --green: #0F9E52;
+    --green-lt: #D6F5E4;
+    --green-dk: #0A7A3E;
+    --amber: #C96F00;
+    --amber-lt: #FEF0D0;
+    --indigo: #4338CA;
+    --indigo-lt: #ECEEFF;
+    --red: #D42020;
+    --red-lt: #FEF0F0;
+    --ink: #080D1A;
+    --ink2: #2E3A4E;
+    --ink3: #62708A;
+    --paper: #FAFBFF;
+    --surface: #F2F4FB;
+    --surface2: #E8EBF5;
+    --border: #DDE1EF;
+    --border2: #CDD3E8;
+    --r-sm: 7px;
+    --r: 11px;
+    --r-lg: 17px;
+    --r-xl: 23px;
+    --sh: 0 4px 24px rgba(10, 20, 60, .07), 0 1px 4px rgba(10, 20, 60, .04);
+    --sh-lg: 0 12px 48px rgba(10, 20, 60, .10), 0 4px 12px rgba(10, 20, 60, .05);
+    --sh-xl: 0 24px 72px rgba(10, 20, 60, .14), 0 8px 24px rgba(10, 20, 60, .06);
     --font: 'Inter', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', monospace;
 }
@@ -1681,4 +1682,234 @@ footer {
     50% {
         opacity: .35
     }
+}
+
+
+/* ════════════════════════════════════
+ GLOBAL PALETTE OVERRIDES
+════════════════════════════════════ */
+
+/* ── Page background: very subtle blue-warm tint ── */
+body {
+    background: linear-gradient(180deg, #FAFBFF 0%, #F4F6FD 100%);
+    min-height: 100vh
+}
+
+/* ── Nav: glass with blue tint ── */
+nav {
+    background: rgba(248, 250, 255, .94);
+    border-bottom-color: var(--border)
+}
+
+/* ── USP strip: deep navy-indigo instead of pure black ── */
+#usp {
+    background: linear-gradient(120deg, #060C20 0%, #0B1432 50%, #080E28 100%)
+}
+
+.usp-item {
+    border-right-color: rgba(255, 255, 255, .06)
+}
+
+/* ── Phone feature: richer gradient ── */
+#phone-feat {
+    background: linear-gradient(135deg, #060C20 0%, #0C1838 55%, #0A1430 100%)
+}
+
+/* ── Hero: richer gradient ── */
+#hero {
+    background: linear-gradient(135deg, #060C20 0%, #0C1838 50%, #091230 100%)
+}
+
+/* ── Compare: dark with violet lean ── */
+#compare {
+    background: linear-gradient(135deg, #060C20 0%, #0C1432 40%, #0E1040 100%);
+    position: relative;
+    overflow: hidden
+}
+
+#compare::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 55% 65% at 10% 60%, rgba(67, 56, 202, .16) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 55% at 90% 20%, rgba(30, 90, 232, .12) 0%, transparent 55%)
+}
+
+#compare::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)
+}
+
+#compare .wrap {
+    position: relative;
+    z-index: 1
+}
+
+/* Compare text on dark */
+#compare .sec-hd .h2 {
+    color: #fff
+}
+
+#compare .sec-hd .eyebrow {
+    color: #7EB3FF
+}
+
+#compare .sec-hd .body-lg {
+    color: #94A3B8
+}
+
+/* Compare cards: glass-like on dark */
+.compare-col {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .28), 0 2px 8px rgba(0, 0, 0, .18)
+}
+
+.pain .compare-col-hd {
+    background: rgba(212, 32, 32, .18);
+    color: #FCA5A5;
+    border-bottom-color: rgba(212, 32, 32, .25)
+}
+
+.gain .compare-col-hd {
+    background: rgba(15, 158, 82, .18);
+    color: #6EE7A4;
+    border-bottom-color: rgba(15, 158, 82, .25)
+}
+
+.compare-item {
+    background: rgba(255, 255, 255, .04);
+    border-bottom-color: rgba(255, 255, 255, .07);
+    color: #CBD5E1
+}
+
+/* ── Workflow: dark with blue lean ── */
+#workflow {
+    background: linear-gradient(135deg, #060C20 0%, #0B1535 45%, #0E1240 100%);
+    position: relative;
+    overflow: hidden
+}
+
+#workflow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(30, 90, 232, .15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 5% 80%, rgba(67, 56, 202, .12) 0%, transparent 55%)
+}
+
+#workflow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)
+}
+
+#workflow .wrap {
+    position: relative;
+    z-index: 1
+}
+
+/* Workflow text on dark */
+#workflow .sec-hd .h2 {
+    color: #fff
+}
+
+#workflow .sec-hd .eyebrow {
+    color: #7EB3FF
+}
+
+#workflow .sec-hd .body-lg {
+    color: #94A3B8
+}
+
+/* Workflow tabs on dark */
+#workflow .workflow-tab {
+    background: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .10);
+    color: #94A3B8
+}
+
+#workflow .workflow-tab:hover {
+    background: rgba(30, 90, 232, .22);
+    border-color: rgba(30, 90, 232, .45);
+    color: #fff
+}
+
+#workflow .workflow-tab.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+    box-shadow: 0 2px 14px rgba(30, 90, 232, .38)
+}
+
+/* Workflow panels on dark: keep white cards readable */
+#workflow .wp-panel,
+#workflow .wp-panel-ui {
+    background: rgba(255, 255, 255, .97);
+    border-color: rgba(255, 255, 255, .12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .2)
+}
+
+/* Left copy text in workflow panels */
+#workflow .workflow-panel.active>div:first-child .eyebrow {
+    color: #7EB3FF
+}
+
+#workflow .workflow-panel.active>div:first-child .h3 {
+    color: #fff
+}
+
+#workflow .workflow-panel.active>div:first-child .body {
+    color: #94A3B8
+}
+
+#workflow .workflow-panel.active>div:first-child .wp-list li {
+    color: #CBD5E1
+}
+
+/* ── Dividers: barely visible on light sections ── */
+.divider {
+    border-top-color: var(--border)
+}
+
+/* ── Footer: deepest shade ── */
+footer {
+    background: #030710;
+    border-top-color: rgba(255, 255, 255, .04)
+}
+
+/* ── Buttons: richer shadow ── */
+.btn-primary {
+    box-shadow: 0 2px 14px rgba(30, 90, 232, .35)
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 24px rgba(30, 90, 232, .48)
+}
+
+/* ── Cards & panels: light sections ── */
+.mockup,
+.wp-panel,
+.wp-panel-ui {
+    background: #fff
+}
+
+/* ── Compare col on light (fallback safety) ── */
+.compare-item {
+    line-height: 1.6
 }
