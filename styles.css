@@ -947,38 +947,54 @@ nav {
     padding: clamp(15px, 7vw, 50px) 0
 }
 
+.workflow-3col {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: clamp(16px, 2.5vw, 28px);
+    align-items: start
+}
+
 .workflow-tabs {
     display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: clamp(20px, 3vw, 28px)
+    flex-direction: column;
+    gap: 4px;
+    position: sticky;
+    top: 72px
 }
 
 .workflow-tab {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 7px 14px;
+    gap: 8px;
+    padding: 10px 14px;
     border-radius: var(--r-sm);
     font-size: .8rem;
     font-weight: 600;
-    border: 1.5px solid var(--border);
-    background: var(--paper);
-    color: var(--ink2);
-    transition: all .15s
+    border: 1.5px solid rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .04);
+    color: #94A3B8;
+    transition: all .15s;
+    text-align: left;
+    width: 100%
 }
 
 .workflow-tab:hover {
-    background: var(--blue-lt);
-    border-color: var(--blue-mid);
-    color: var(--blue)
+    background: rgba(30, 90, 232, .2);
+    border-color: rgba(30, 90, 232, .4);
+    color: #fff
 }
 
 .workflow-tab.active {
     background: var(--blue);
     border-color: var(--blue);
     color: #fff;
-    box-shadow: 0 2px 10px rgba(37, 99, 235, .28)
+    box-shadow: 0 2px 14px rgba(30, 90, 232, .38)
+}
+
+/* copy and ui columns just show/hide active panel */
+.workflow-copy-col,
+.workflow-ui-col {
+    min-width: 0
 }
 
 .workflow-panel {
@@ -986,10 +1002,49 @@ nav {
 }
 
 .workflow-panel.active {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(20px, 3.5vw, 36px);
-    align-items: start
+    display: block
+}
+
+/* copy column text on dark bg */
+.workflow-copy-col .workflow-panel .eyebrow {
+    color: #7EB3FF
+}
+
+.workflow-copy-col .workflow-panel .h3 {
+    color: #fff;
+    margin-top: 8px
+}
+
+.workflow-copy-col .workflow-panel .body {
+    color: #94A3B8
+}
+
+.workflow-copy-col .workflow-panel .wp-list li {
+    color: #CBD5E1
+}
+
+/* ui panels keep white card style */
+.workflow-ui-col .wp-panel,
+.workflow-ui-col .wp-panel-ui {
+    background: rgba(255, 255, 255, .97);
+    border-color: rgba(255, 255, 255, .10);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .18)
+}
+
+@media(max-width:960px) {
+    .workflow-3col {
+        grid-template-columns: 1fr;
+    }
+
+    .workflow-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: static
+    }
+
+    .workflow-tab {
+        width: auto
+    }
 }
 
 .wp-list {
@@ -1343,7 +1398,7 @@ nav {
 .phone-feat-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(28px, 5vw, 56px);
+    gap: clamp(20px, 2vw, 46px);
     align-items: center;
     position: relative;
     z-index: 1

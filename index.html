@@ -276,7 +276,7 @@
         </div>
         <div class="phone-feat-copy reveal">
           <div class="eyebrow">Mobile First</div>
-          <h2 class="h2">Your phone is the only tool you need.</h2>
+          <h2 class="h2">Phone is the only tool you need</h2>
           <p class="body-lg">No dedicated scanner. No special paper. No hardware investment. SmartOMR works with photos
             taken on any smartphone — processed with the same accuracy as a professional OMR machine.</p>
           <ul class="phone-steps">
@@ -314,449 +314,427 @@
         </div>
       </div>
 
-      <div class="workflow-tabs">
-        <button class="workflow-tab active" data-panel="student">📋 Student Panel</button>
-        <button class="workflow-tab" data-panel="folder">📁 Folder Processing</button>
-        <button class="workflow-tab" data-panel="results">📊 Scan Results</button>
-        <button class="workflow-tab" data-panel="export">📥 Export</button>
-        <button class="workflow-tab" data-panel="manual">✏️ Manual Entry</button>
-      </div>
+      <div class="workflow-3col">
 
-      <!-- Student -->
-      <div class="workflow-panel active" id="wp-student">
-        <div>
-          <div class="eyebrow">Student Panel</div>
-          <h3 class="h3" style="margin-top:8px">Single sheet scanning for students</h3>
-          <ul class="wp-list">
-            <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Select Exam ID — no login
-                required for students</span></li>
-            <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Camera capture or gallery
-                browse on mobile</span></li>
-            <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Built-in crop &amp; rotate
-                for phone photos</span></li>
-            <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Result modal: score, set
-                code, ID, every answer</span></li>
-          </ul>
+        <!-- ── Col 1: Vertical tabs ── -->
+        <div class="workflow-tabs">
+          <button class="workflow-tab active" data-panel="student">📋 Student Panel</button>
+          <button class="workflow-tab" data-panel="results">📊 Scan Results</button>
+          <button class="workflow-tab" data-panel="folder">📁 Folder Processing</button>
+          <button class="workflow-tab" data-panel="export">📥 Export</button>
+          <button class="workflow-tab" data-panel="manual">✏️ Manual Entry</button>
         </div>
-        <div class="wp-panel wp-panel-ui">
-          <div class="wp-header"><span class="wp-title">Upload OMR — Student Panel</span><span
-              class="pill pill-indigo">Single Sheet</span></div>
-          <div class="wp-body">
-            <div>
-              <div style="font-size:10.5px;font-weight:600;color:var(--ink3);margin-bottom:4px">Exam ID</div>
-              <div
-                style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:7px 11px;font-size:11.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:center">
-                EEE111_CT1<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg></div>
-            </div>
-            <div class="up-zone">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-              </svg>
-              <div class="up-zone-text" style="margin-top:4px">📷 <u>Take a Photo</u> &nbsp;·&nbsp; 📁 <u>Browse
-                  File</u></div>
-              <div style="font-size:10px;color:var(--ink3);margin-top:2px">sheet_0421.jpg · 2.1 MB</div>
-            </div>
-            <button class="btn btn-primary"
-              style="width:100%;justify-content:center;pointer-events:none;font-size:.8125rem">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>See Result
-            </button>
-            <div style="background:var(--blue-lt);border:1px solid var(--blue-mid);border-radius:var(--r);padding:12px">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px">
-                <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:8px">
+
+        <!-- ── Col 2: Copy ── -->
+        <div class="workflow-copy-col">
+
+          <div class="workflow-panel active" id="wp-student">
+            <div class="eyebrow">Student Panel</div>
+            <h3 class="h3" style="margin-top:8px">Single sheet scanning for students</h3>
+            <ul class="wp-list">
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Select Exam ID — no
+                  login required for students</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Camera capture or
+                  gallery browse on mobile</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Built-in crop &amp;
+                  rotate for phone photos</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Result modal: score, set
+                  code, ID, every answer</span></li>
+            </ul>
+          </div>
+
+          <div class="workflow-panel" id="wp-results">
+            <div class="eyebrow">Scan Results</div>
+            <h3 class="h3" style="margin-top:8px">Per-question answer breakdown</h3>
+            <ul class="wp-list">
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Selected vs. correct
+                  answer for every question</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Answer Correct /
+                  Incorrect clearly marked</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Crop failure warning
+                  with retry option</span></li>
+            </ul>
+          </div>
+
+          <div class="workflow-panel" id="wp-folder">
+            <div class="eyebrow">Teacher Dashboard</div>
+            <h3 class="h3" style="margin-top:8px">Folder processing</h3>
+            <ul class="wp-list">
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Drag &amp; drop a
+                  folder or browse files — all formats accepted</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Live progress bar with
+                  per-sheet status log via streaming</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Automatic QR set
+                  detection across mixed-set batches</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Unreadable sheets
+                  flagged automatically for manual entry</span></li>
+            </ul>
+          </div>
+
+          <div class="workflow-panel" id="wp-export">
+            <div class="eyebrow">Excel Export</div>
+            <h3 class="h3" style="margin-top:8px">Export answer and results</h3>
+            <ul class="wp-list">
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Answer
+                    export:</strong> Student ID, Set, Question Number and Answers</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Result
+                    export:</strong> Student ID, Score, Pass/Fail per row</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Compatible with any
+                  grading system or LMS</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Available immediately
+                  after batch completes</span></li>
+            </ul>
+          </div>
+
+          <div class="workflow-panel" id="wp-manual">
+            <div class="eyebrow">Manual Entry</div>
+            <h3 class="h3" style="margin-top:8px">No student result is ever lost</h3>
+            <p class="body" style="margin-top:7px">When a sheet is too damaged or blurry to scan, SmartOMR flags it and
+              opens Manual Entry — so you can still capture every result.</p>
+            <ul class="wp-list">
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Zoomable image viewer
+                  with rotate and pan controls</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">OMR-style bubble grid
+                  for intuitive answer entry</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Student ID and Set
+                  Code fields with inline validation</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Skip option — defer
+                  individual sheets, process the rest</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ── Col 3: UI Panels ── -->
+        <div class="workflow-ui-col">
+
+          <!-- Student UI -->
+          <div class="workflow-panel active" id="wp-student-ui">
+            <div class="wp-panel wp-panel-ui">
+              <div class="wp-header">
+                <span class="wp-title">Upload OMR — Student Panel</span>
+                <span class="pill pill-indigo">Single Sheet</span>
+              </div>
+              <div class="wp-body">
+                <div>
+                  <div style="font-size:10.5px;font-weight:600;color:var(--ink3);margin-bottom:4px">Exam ID</div>
                   <div
-                    style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-                    Score</div>
-                  <div style="font-size:1.25rem;font-weight:900;color:var(--blue);margin-top:1px">38<span
-                      style="font-size:.7rem;color:var(--ink3);font-weight:400"> / 40</span></div>
+                    style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:7px 11px;font-size:11.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:center">
+                    EEE111_CT1
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </div>
-                <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:8px">
+                <div class="up-zone">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                  <div class="up-zone-text" style="margin-top:4px">📷 <u>Take a Photo</u> &nbsp;·&nbsp; 📁 <u>Browse
+                      File</u></div>
+                  <div style="font-size:10px;color:var(--ink3);margin-top:2px">sheet_0421.jpg · 2.1 MB</div>
+                </div>
+                <button class="btn btn-primary"
+                  style="width:100%;justify-content:center;pointer-events:none;font-size:.8125rem">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                  See Result
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results UI -->
+          <div class="workflow-panel" id="wp-results-ui">
+            <div class="wp-panel wp-panel-ui">
+              <div class="wp-header">
+                <span class="wp-title">Scan Result — STU-18702051</span>
+                <span class="pill pill-green">✓ Processed</span>
+              </div>
+              <div class="wp-body">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px">
                   <div
-                    style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-                    Student ID</div>
-                  <div style="font-size:.8rem;font-weight:700;color:var(--ink);margin-top:3px;font-family:var(--mono)">
-                    18702051</div>
+                    style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
+                    <div
+                      style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+                      Exam ID</div>
+                    <div
+                      style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px;font-family:var(--mono)">
+                      EEE111_CT1</div>
+                  </div>
+                  <div
+                    style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
+                    <div
+                      style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+                      Student ID</div>
+                    <div
+                      style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px;font-family:var(--mono)">
+                      18702051</div>
+                  </div>
+                  <div
+                    style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
+                    <div
+                      style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+                      Set Code</div>
+                    <div style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px">Set A</div>
+                  </div>
+                  <div
+                    style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
+                    <div
+                      style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+                      Percentage</div>
+                    <div style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px">95%</div>
+                  </div>
                 </div>
-              </div>
-              <div class="q-row"><span class="q-lbl">Q1</span>
-                <div class="q-bubbles">
-                  <div class="bubble b-ok">A</div>
-                  <div class="bubble">B</div>
-                  <div class="bubble">C</div>
-                  <div class="bubble">D</div>
-                </div><span class="q-verdict qv-ok">✓</span>
-              </div>
-              <div class="q-row"><span class="q-lbl">Q2</span>
-                <div class="q-bubbles">
-                  <div class="bubble">A</div>
-                  <div class="bubble b-ok">B</div>
-                  <div class="bubble">C</div>
-                  <div class="bubble">D</div>
-                </div><span class="q-verdict qv-ok">✓</span>
-              </div>
-              <div class="q-row"><span class="q-lbl">Q3</span>
-                <div class="q-bubbles">
-                  <div class="bubble">A</div>
-                  <div class="bubble">B</div>
-                  <div class="bubble b-bad">C</div>
-                  <div class="bubble">D</div>
-                </div><span class="q-verdict qv-bad">✗ (D)</span>
-              </div>
-              <div class="q-row"><span class="q-lbl">Q4</span>
-                <div class="q-bubbles">
-                  <div class="bubble">A</div>
-                  <div class="bubble">B</div>
-                  <div class="bubble">C</div>
-                  <div class="bubble b-ok">D</div>
-                </div><span class="q-verdict qv-ok">✓</span>
+                <div style="border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden">
+                  <div
+                    style="display:grid;grid-template-columns:44px 1fr 72px;background:var(--surface);border-bottom:1px solid var(--border)">
+                    <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3)">Q</div>
+                    <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3)">Selected</div>
+                    <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3);text-align:center">
+                      Result</div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:44px 1fr 72px;border-bottom:1px solid var(--surface2)">
+                    <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q1</div>
+                    <div style="padding:6px 10px;font-size:10.5px;font-weight:600">A</div>
+                    <div style="padding:6px 10px;text-align:center"><span class="pill pill-green"
+                        style="font-size:8.5px">✓</span></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:44px 1fr 72px;border-bottom:1px solid var(--surface2)">
+                    <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q2</div>
+                    <div style="padding:6px 10px;font-size:10.5px;font-weight:600">B</div>
+                    <div style="padding:6px 10px;text-align:center"><span class="pill pill-green"
+                        style="font-size:8.5px">✓</span></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:44px 1fr 72px">
+                    <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q3</div>
+                    <div style="padding:6px 10px;font-size:10.5px;font-weight:600;color:var(--red)">C <span
+                        style="color:var(--ink3);font-weight:400">(ans: D)</span></div>
+                    <div style="padding:6px 10px;text-align:center"><span class="pill pill-red"
+                        style="font-size:8.5px">✗</span></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Folder -->
-      <div class="workflow-panel" id="wp-folder">
-        <div>
-          <div class="eyebrow">Teacher Dashboard</div>
-          <h3 class="h3" style="margin-top:8px">Folder processing</h3>
-          <ul class="wp-list">
-            <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Drag &amp; drop a folder
-                or browse files — all formats accepted</span></li>
-            <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Live progress bar with
-                per-sheet status log via streaming</span></li>
-            <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Automatic QR set
-                detection across mixed-set batches</span></li>
-            <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Unreadable sheets flagged
-                automatically for manual entry</span></li>
-          </ul>
-        </div>
-        <div class="wp-panel wp-panel-ui">
-          <div class="wp-header"><span class="wp-title">Upload OMR — Batch</span><span class="pill pill-green">6 files
-              selected</span></div>
-          <div class="wp-body">
-            <div class="file-row">
-              <div class="file-thumb"></div>
-              <div>
-                <div class="file-name">sheet_01.jpg</div>
-                <div class="file-sub">2.1 MB</div>
-              </div><span class="pill pill-green" style="margin-left:auto">✓ Done</span>
-            </div>
-            <div class="file-row">
-              <div class="file-thumb" style="background:linear-gradient(135deg,#dce8f5,#c4d5ec)"></div>
-              <div>
-                <div class="file-name">sheet_02.jpg</div>
-                <div class="file-sub">1.8 MB</div>
-              </div><span class="pill pill-green" style="margin-left:auto">✓ Done</span>
-            </div>
-            <div class="file-row">
-              <div class="file-thumb" style="background:linear-gradient(135deg,#e8efff,#d4e0ff)"></div>
-              <div>
-                <div class="file-name">sheet_03.jpg</div>
-                <div class="file-sub">2.4 MB</div>
-              </div><span class="pill pill-amber" style="margin-left:auto">⟳ Scanning</span>
-            </div>
-            <div class="prog-row" style="margin-top:10px">
-              <span
-                style="display:flex;align-items:center;gap:5px;font-weight:700;color:var(--green);font-size:10px"><span
-                  style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite"></span>Live</span>
-              <span style="font-size:10px;color:var(--ink3)">2 / 6</span>
-            </div>
-            <div class="p-bar">
-              <div class="p-fill" style="width:33%"></div>
-            </div>
-            <div style="border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:8px">
-              <div class="log-entry">
-                <div class="log-dot ld-g"></div>
-                <div>sheet_01.jpg → STU-18702051 · Set A · <strong>38/40</strong></div>
+          <!-- Folder UI -->
+          <div class="workflow-panel" id="wp-folder-ui">
+            <div class="wp-panel wp-panel-ui">
+              <div class="wp-header">
+                <span class="wp-title">Upload OMR — Batch</span>
+                <span class="pill pill-green">6 files selected</span>
               </div>
-              <div class="log-entry">
-                <div class="log-dot ld-g"></div>
-                <div>sheet_02.jpg → STU-18702052 · Set B · <strong>31/40</strong></div>
-              </div>
-              <div class="log-entry">
-                <div class="log-dot ld-b"></div>
-                <div>sheet_03.jpg → Detecting ID…</div>
+              <div class="wp-body">
+                <div class="file-row">
+                  <div class="file-thumb"></div>
+                  <div>
+                    <div class="file-name">sheet_01.jpg</div>
+                    <div class="file-sub">2.1 MB</div>
+                  </div>
+                  <span class="pill pill-green" style="margin-left:auto">✓ Done</span>
+                </div>
+                <div class="file-row">
+                  <div class="file-thumb" style="background:linear-gradient(135deg,#e8efff,#d4e0ff)"></div>
+                  <div>
+                    <div class="file-name">sheet_02.jpg</div>
+                    <div class="file-sub">2.4 MB</div>
+                  </div>
+                  <span class="pill pill-amber" style="margin-left:auto">⟳ Scanning</span>
+                </div>
+                <div class="prog-row" style="margin-top:10px">
+                  <span
+                    style="display:flex;align-items:center;gap:5px;font-weight:700;color:var(--green);font-size:10px">
+                    <span
+                      style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite"></span>Live
+                  </span>
+                  <span style="font-size:10px;color:var(--ink3)">1 / 6</span>
+                </div>
+                <div class="p-bar">
+                  <div class="p-fill" style="width:33%"></div>
+                </div>
+                <div style="border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-top:8px">
+                  <div class="log-entry">
+                    <div class="log-dot ld-g"></div>
+                    <div>sheet_01.jpg → STU-18702051 · Set A · <strong>38/40</strong></div>
+                  </div>
+                  <div class="log-entry">
+                    <div class="log-dot ld-b"></div>
+                    <div>sheet_02.jpg → Detecting ID…</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Results -->
-      <div class="workflow-panel" id="wp-results">
-        <div>
-          <div class="eyebrow">Scan Results</div>
-          <h3 class="h3" style="margin-top:8px">Per-question answer breakdown</h3>
-          <ul class="wp-list">
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Selected vs. correct
-                answer for every question</span></li>
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Answer Correct /
-                Incorrect clearly marked</span></li>
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Crop failure warning
-                with retry option</span></li>
-          </ul>
-        </div>
-        <div class="wp-panel wp-panel-ui">
-          <div class="wp-header"><span class="wp-title">Scan Result — STU-18702051</span><span class="pill pill-green">✓
-              Processed</span></div>
-          <div class="wp-body">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px">
-              <div
-                style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
-                <div
-                  style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-                  Exam ID</div>
-                <div style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px;font-family:var(--mono)">
-                  EEE111_CT1</div>
-              </div>
-              <div
-                style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
-                <div
-                  style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-                  Student ID</div>
-                <div style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px;font-family:var(--mono)">
-                  18702051</div>
-              </div>
-              <div
-                style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px">
-                <div
-                  style="font-size:8.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-                  Set Code</div>
-                <div style="font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px">Set A</div>
-              </div>
-              <div
-                style="background:var(--blue-lt);border:1px solid var(--blue-mid);border-radius:var(--r-sm);padding:9px">
-                <div
-                  style="font-size:8.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em">
-                  Total Score</div>
-                <div style="font-size:1.05rem;font-weight:900;color:var(--blue);margin-top:1px">38 <span
-                    style="font-size:.7rem;font-weight:400;color:var(--ink3)">/ 40</span></div>
-              </div>
-            </div>
-            <div style="border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden">
-              <div
-                style="display:grid;grid-template-columns:44px 1fr 72px;background:var(--surface);border-bottom:1px solid var(--border)">
-                <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3)">Q</div>
-                <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3)">Selected</div>
-                <div style="padding:6px 10px;font-size:9.5px;font-weight:700;color:var(--ink3);text-align:center">Result
+          <!-- Export UI -->
+          <div class="workflow-panel" id="wp-export-ui">
+            <div class="wp-panel-ui" style="display:flex;flex-direction:column;gap:12px">
+              <div class="wp-panel">
+                <div class="wp-header">
+                  <span class="wp-title">📊 Answer Export</span>
+                  <span class="pill pill-amber">.xlsx</span>
+                </div>
+                <div class="xls-row">
+                  <div class="xc hd">Student ID</div>
+                  <div class="xc hd">Set</div>
+                  <div class="xc hd">Q1</div>
+                  <div class="xc hd">Q2</div>
+                  <div class="xc hd">Q3</div>
+                </div>
+                <div class="xls-row">
+                  <div class="xc mono">18702051</div>
+                  <div class="xc">A</div>
+                  <div class="xc">A</div>
+                  <div class="xc">B</div>
+                  <div class="xc">C</div>
+                </div>
+                <div class="xls-row">
+                  <div class="xc mono">18702052</div>
+                  <div class="xc">B</div>
+                  <div class="xc">C</div>
+                  <div class="xc">A</div>
+                  <div class="xc">D</div>
+                </div>
+                <div class="xls-row" style="background:var(--surface)">
+                  <div class="xc" style="color:var(--ink3);font-size:10px">+ 197 more rows</div>
                 </div>
               </div>
-              <div style="display:grid;grid-template-columns:44px 1fr 72px;border-bottom:1px solid var(--surface2)">
-                <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q1</div>
-                <div style="padding:6px 10px;font-size:10.5px;font-weight:600">A</div>
-                <div style="padding:6px 10px;text-align:center"><span class="pill pill-green"
-                    style="font-size:8.5px">✓</span></div>
-              </div>
-              <div style="display:grid;grid-template-columns:44px 1fr 72px;border-bottom:1px solid var(--surface2)">
-                <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q2</div>
-                <div style="padding:6px 10px;font-size:10.5px;font-weight:600">B</div>
-                <div style="padding:6px 10px;text-align:center"><span class="pill pill-green"
-                    style="font-size:8.5px">✓</span></div>
-              </div>
-              <div style="display:grid;grid-template-columns:44px 1fr 72px">
-                <div style="padding:6px 10px;font-size:10.5px;color:var(--ink3)">Q3</div>
-                <div style="padding:6px 10px;font-size:10.5px;font-weight:600;color:var(--red)">C <span
-                    style="color:var(--ink3);font-weight:400">(ans: D)</span></div>
-                <div style="padding:6px 10px;text-align:center"><span class="pill pill-red"
-                    style="font-size:8.5px">✗</span></div>
+              <div class="wp-panel">
+                <div class="wp-header">
+                  <span class="wp-title">📋 Result Export</span>
+                  <span class="pill pill-green">.xlsx</span>
+                </div>
+                <div class="xls-row">
+                  <div class="xc hd">Student ID</div>
+                  <div class="xc hd">Score</div>
+                  <div class="xc hd">Percentage</div>
+                </div>
+                <div class="xls-row">
+                  <div class="xc mono">18702051</div>
+                  <div class="xc">38 / 40</div>
+                  <div class="xc">95%</div>
+                </div>
+                <div class="xls-row">
+                  <div class="xc mono">18702052</div>
+                  <div class="xc">31 / 40</div>
+                  <div class="xc">77%</div>
+                </div>
+                <div class="xls-row">
+                  <div class="xc mono">18702053</div>
+                  <div class="xc">18 / 40</div>
+                  <div class="xc">45%</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Export -->
-      <div class="workflow-panel" id="wp-export">
-        <div>
-          <div class="eyebrow">Excel Export</div>
-          <h3 class="h3" style="margin-top:8px">Two reports, one click each</h3>
-          <ul class="wp-list">
-            <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Answer
-                  export:</strong> Student ID, Set, Question Number and Answers</span></li>
-            <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Result
-                  export:</strong> Student ID, Score, Pass/Fail per row</span></li>
-            <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Compatible with any
-                grading system or LMS</span></li>
-            <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Available immediately
-                after batch completes</span></li>
-          </ul>
-        </div>
-        <div class="wp-panel-ui" style="display:flex;flex-direction:column;gap:12px">
-          <div class="wp-panel">
-            <div class="wp-header"><span class="wp-title">📊 Answer Export</span><span
-                class="pill pill-amber">.xlsx</span></div>
-            <div class="xls-row">
-              <div class="xc hd">Student ID</div>
-              <div class="xc hd">Set</div>
-              <div class="xc hd">Q1</div>
-              <div class="xc hd">Q2</div>
-              <div class="xc hd">Q3</div>
-            </div>
-            <div class="xls-row">
-              <div class="xc mono">18702051</div>
-              <div class="xc">A</div>
-              <div class="xc">A</div>
-              <div class="xc">B</div>
-              <div class="xc">C</div>
-            </div>
-            <div class="xls-row">
-              <div class="xc mono">18702052</div>
-              <div class="xc">B</div>
-              <div class="xc">C</div>
-              <div class="xc">A</div>
-              <div class="xc">D</div>
-            </div>
-            <div class="xls-row" style="background:var(--surface)">
-              <div class="xc" style="color:var(--ink3);font-size:10px">+ 197 more rows</div>
+          <!-- Manual UI -->
+          <div class="workflow-panel" id="wp-manual-ui">
+            <div class="wp-panel wp-panel-ui">
+              <div class="wp-header">
+                <span class="wp-title">✏️ Manual Entry — Unreadable Sheet</span>
+                <span class="pill pill-red">⚠ Flagged</span>
+              </div>
+              <div class="wp-body">
+                <div
+                  style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+                  <div style="opacity:.2;display:grid;grid-template-columns:repeat(8,1fr);gap:3px;padding:8px">
+                    <div
+                      style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
+                    </div>
+                    <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
+                    <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
+                    <div
+                      style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
+                    </div>
+                    <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
+                    <div
+                      style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
+                    </div>
+                    <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
+                    <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
+                  </div>
+                  <div
+                    style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,247,237,.8);font-size:10.5px;font-weight:600;color:#9a3412">
+                    🔍 Zoom · Rotate · Pan
+                  </div>
+                </div>
+                <div style="display:flex;gap:8px">
+                  <div style="flex:1">
+                    <div style="font-size:10px;font-weight:700;color:var(--ink3);margin-bottom:3px">Student ID</div>
+                    <div
+                      style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 9px;font-size:11px;font-family:var(--mono)">
+                      18702054</div>
+                  </div>
+                  <div style="width:72px">
+                    <div style="font-size:10px;font-weight:700;color:var(--ink3);margin-bottom:3px">Set Code</div>
+                    <div
+                      style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 9px;font-size:11px;font-family:var(--mono)">
+                      A</div>
+                  </div>
+                </div>
+                <div
+                  style="font-size:9.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
+                  Answers</div>
+                <div class="me-grid">
+                  <div class="me-q">
+                    <div class="me-q-lbl">Q1</div>
+                    <div class="me-opts">
+                      <div class="me-opt sel">A</div>
+                      <div class="me-opt">B</div>
+                      <div class="me-opt">C</div>
+                      <div class="me-opt">D</div>
+                    </div>
+                  </div>
+                  <div class="me-q">
+                    <div class="me-q-lbl">Q2</div>
+                    <div class="me-opts">
+                      <div class="me-opt">A</div>
+                      <div class="me-opt sel">B</div>
+                      <div class="me-opt">C</div>
+                      <div class="me-opt">D</div>
+                    </div>
+                  </div>
+                  <div class="me-q">
+                    <div class="me-q-lbl">Q3</div>
+                    <div class="me-opts">
+                      <div class="me-opt">A</div>
+                      <div class="me-opt">B</div>
+                      <div class="me-opt">C</div>
+                      <div class="me-opt sel">D</div>
+                    </div>
+                  </div>
+                  <div class="me-q">
+                    <div class="me-q-lbl">Q4</div>
+                    <div class="me-opts">
+                      <div class="me-opt">A</div>
+                      <div class="me-opt sel">B</div>
+                      <div class="me-opt">C</div>
+                      <div class="me-opt">D</div>
+                    </div>
+                  </div>
+                  <div class="me-q">
+                    <div class="me-q-lbl">Q5</div>
+                    <div class="me-opts">
+                      <div class="me-opt sel">A</div>
+                      <div class="me-opt">B</div>
+                      <div class="me-opt">C</div>
+                      <div class="me-opt">D</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:8px;justify-content:flex-end">
+                  <button class="btn btn-ghost btn-sm" style="pointer-events:none;font-size:.75rem">Skip</button>
+                  <button class="btn btn-primary btn-sm" style="pointer-events:none;font-size:.75rem">Submit</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="wp-panel">
-            <div class="wp-header"><span class="wp-title">📋 Result Export</span><span
-                class="pill pill-green">.xlsx</span></div>
-            <div class="xls-row">
-              <div class="xc hd">Student ID</div>
-              <div class="xc hd">Score</div>
-              <div class="xc hd">Result</div>
-            </div>
-            <div class="xls-row">
-              <div class="xc mono">18702051</div>
-              <div class="xc">38 / 40</div>
-              <div class="xc ok">Pass</div>
-            </div>
-            <div class="xls-row">
-              <div class="xc mono">18702052</div>
-              <div class="xc">31 / 40</div>
-              <div class="xc ok">Pass</div>
-            </div>
-            <div class="xls-row">
-              <div class="xc mono">18702053</div>
-              <div class="xc">18 / 40</div>
-              <div class="xc fail">Fail</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Manual Entry -->
-      <div class="workflow-panel" id="wp-manual">
-        <div>
-          <div class="eyebrow">Manual Entry</div>
-          <h3 class="h3" style="margin-top:8px">No student result is ever lost</h3>
-          <p class="body" style="margin-top:7px">When a sheet is too damaged or blurry to scan, SmartOMR flags it and
-            opens Manual Entry — so you can still capture every result.</p>
-          <ul class="wp-list">
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Zoom-able image viewer
-                with rotate and pan controls</span></li>
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">OMR-style bubble grid
-                for intuitive answer entry</span></li>
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Student ID and Set Code
-                fields with inline validation</span></li>
-            <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Skip option — defer
-                individual sheets, process the rest</span></li>
-          </ul>
-        </div>
-        <div class="wp-panel wp-panel-ui">
-          <div class="wp-header"><span class="wp-title">✏️ Manual Entry — Unreadable Sheet</span><span
-              class="pill pill-red">⚠ Flagged</span></div>
-          <div class="wp-body">
-            <div
-              style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
-              <div style="opacity:.2;display:grid;grid-template-columns:repeat(8,1fr);gap:3px;padding:8px">
-                <div
-                  style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
-                </div>
-                <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
-                <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
-                <div
-                  style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
-                </div>
-                <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
-                <div
-                  style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2);background:var(--ink)">
-                </div>
-                <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
-                <div style="width:9px;height:9px;border-radius:50%;border:1px solid var(--border2)"></div>
-              </div>
-              <div
-                style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,247,237,.8);font-size:10.5px;font-weight:600;color:#9a3412">
-                🔍 Zoom · Rotate · Pan</div>
-            </div>
-            <div style="display:flex;gap:8px">
-              <div style="flex:1">
-                <div style="font-size:10px;font-weight:700;color:var(--ink3);margin-bottom:3px">Student ID</div>
-                <div
-                  style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 9px;font-size:11px;font-family:var(--mono)">
-                  18702054</div>
-              </div>
-              <div style="width:72px">
-                <div style="font-size:10px;font-weight:700;color:var(--ink3);margin-bottom:3px">Set Code</div>
-                <div
-                  style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 9px;font-size:11px;font-family:var(--mono)">
-                  A</div>
-              </div>
-            </div>
-            <div
-              style="font-size:9.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em">
-              Answers</div>
-            <div class="me-grid">
-              <div class="me-q">
-                <div class="me-q-lbl">Q1</div>
-                <div class="me-opts">
-                  <div class="me-opt sel">A</div>
-                  <div class="me-opt">B</div>
-                  <div class="me-opt">C</div>
-                  <div class="me-opt">D</div>
-                </div>
-              </div>
-              <div class="me-q">
-                <div class="me-q-lbl">Q2</div>
-                <div class="me-opts">
-                  <div class="me-opt">A</div>
-                  <div class="me-opt sel">B</div>
-                  <div class="me-opt">C</div>
-                  <div class="me-opt">D</div>
-                </div>
-              </div>
-              <div class="me-q">
-                <div class="me-q-lbl">Q3</div>
-                <div class="me-opts">
-                  <div class="me-opt">A</div>
-                  <div class="me-opt">B</div>
-                  <div class="me-opt">C</div>
-                  <div class="me-opt sel">D</div>
-                </div>
-              </div>
-              <div class="me-q">
-                <div class="me-q-lbl">Q4</div>
-                <div class="me-opts">
-                  <div class="me-opt">A</div>
-                  <div class="me-opt sel">B</div>
-                  <div class="me-opt">C</div>
-                  <div class="me-opt">D</div>
-                </div>
-              </div>
-              <div class="me-q">
-                <div class="me-q-lbl">Q5</div>
-                <div class="me-opts">
-                  <div class="me-opt sel">A</div>
-                  <div class="me-opt">B</div>
-                  <div class="me-opt">C</div>
-                  <div class="me-opt">D</div>
-                </div>
-              </div>
-            </div>
-            <div style="display:flex;gap:8px;justify-content:flex-end">
-              <button class="btn btn-ghost btn-sm" style="pointer-events:none;font-size:.75rem">Skip</button>
-              <button class="btn btn-primary btn-sm" style="pointer-events:none;font-size:.75rem">Submit</button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -768,8 +746,7 @@
       <div class="sec-hd tc">
         <div class="wrap-sm">
           <div class="eyebrow">Before vs After</div>
-          <h2 class="h2">Manual marking costs more than you think.</h2>
-          <p class="body-lg">Every exam cycle, institutions spend days on grading that should take minutes.</p>
+          <h2 class="h2">Stop burning days on marking cycles</h2>
         </div>
       </div>
       <div class="compare-grid">
@@ -787,11 +764,11 @@
         </div>
         <div class="compare-col gain reveal">
           <div class="compare-col-hd">✅ With SmartOMR</div>
-          <div class="compare-item"><span class="ci">⚡</span>50+ sheets scanned and scored in under 5 minutes</div>
-          <div class="compare-item"><span class="ci">💰</span>Staff time freed up for teaching — not data entry</div>
-          <div class="compare-item"><span class="ci">🎯</span>Consistent accuracy every time — no human fatigue</div>
+          <div class="compare-item"><span class="ci">⚡</span>50+ sheets scanned and scored in less than 5 minutes</div>
+          <div class="compare-item"><span class="ci">💰</span>Cut grading costs by 95% — staff freed instantly</div>
+          <div class="compare-item"><span class="ci">🎯</span>99.8% accuracy — no fatigue, no re-checking</div>
           <div class="compare-item"><span class="ci">📂</span>Drop a folder, press Start — any batch size</div>
-          <div class="compare-item"><span class="ci">📥</span>Answer sheet and result files exported to Excel when done
+          <div class="compare-item"><span class="ci">📥</span>Answer and result files exported automatically
           </div>
         </div>
       </div>

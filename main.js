@@ -29,12 +29,15 @@ document.querySelectorAll(".workflow-tab").forEach((tab) => {
       .forEach((p) => p.classList.remove("active"));
     tab.classList.add("active");
     document.getElementById("wp-" + id).classList.add("active");
-    document.querySelectorAll("#wp-" + id + " .reveal").forEach((el) => {
-      el.classList.remove("on");
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => el.classList.add("on"))
-      );
-    });
+    document.getElementById("wp-" + id + "-ui").classList.add("active");
+    document
+      .querySelectorAll("#wp-" + id + " .reveal, #wp-" + id + "-ui .reveal")
+      .forEach((el) => {
+        el.classList.remove("on");
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => el.classList.add("on"))
+        );
+      });
   });
 });
 
