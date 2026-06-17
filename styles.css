@@ -2251,6 +2251,93 @@ footer {
     }
 }
 
+/* ════════════════════════════════════
+ SUBTLE ENHANCEMENTS
+════════════════════════════════════ */
+
+/* ── Focus Visible (accessibility) ── */
+:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    border-radius: 4px
+}
+
+/* ── Card hover lift (cards only, subtle) ── */
+.ben-item,
+.compare-col {
+    transition: transform .22s ease, box-shadow .22s ease
+}
+
+.ben-item:hover,
+.compare-col:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
+}
+
+@media(hover:none) {
+
+    .ben-item:hover,
+    .compare-col:hover {
+        transform: none
+    }
+}
+
+/* ── Compare Stats Strip ── */
+#compare-stats {
+    background: linear-gradient(135deg, #060C20 0%, #0B1535 50%, #080E28 100%);
+    padding: clamp(20px, 4vw, 36px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .04)
+}
+
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0
+}
+
+.stat-badge {
+    text-align: center;
+    padding: 10px 8px;
+    border-right: 1px solid rgba(255, 255, 255, .06)
+}
+
+.stat-badge:last-child {
+    border-right: none
+}
+
+.s-num {
+    display: block;
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.02em;
+    line-height: 1.1
+}
+
+.s-lbl {
+    display: block;
+    font-size: .7rem;
+    color: #64748B;
+    font-weight: 500;
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+@media(max-width:600px) {
+    .stats-strip {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .stat-badge:nth-child(2) {
+        border-right: none
+    }
+
+    .stat-badge {
+        padding: 8px 4px
+    }
+}
+
 
 /* ════════════════════════════════════
  GLOBAL PALETTE OVERRIDES
@@ -2554,92 +2641,4 @@ footer {
 
 #faq .sec-hd .eyebrow {
     color: var(--blue)
-}
-
-
-/* ════════════════════════════════════
- SUBTLE ENHANCEMENTS
-════════════════════════════════════ */
-
-/* ── Focus Visible (accessibility) ── */
-:focus-visible {
-    outline: 2px solid var(--blue);
-    outline-offset: 2px;
-    border-radius: 4px
-}
-
-/* ── Card hover lift (cards only, subtle) ── */
-.ben-item,
-.compare-col {
-    transition: transform .22s ease, box-shadow .22s ease
-}
-
-.ben-item:hover,
-.compare-col:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
-}
-
-@media(hover:none) {
-
-    .ben-item:hover,
-    .compare-col:hover {
-        transform: none
-    }
-}
-
-/* ── Compare Stats Strip ── */
-#compare-stats {
-    background: linear-gradient(135deg, #060C20 0%, #0B1535 50%, #080E28 100%);
-    padding: clamp(20px, 4vw, 36px) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, .04)
-}
-
-.stats-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0
-}
-
-.stat-badge {
-    text-align: center;
-    padding: 10px 8px;
-    border-right: 1px solid rgba(255, 255, 255, .06)
-}
-
-.stat-badge:last-child {
-    border-right: none
-}
-
-.s-num {
-    display: block;
-    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: -.02em;
-    line-height: 1.1
-}
-
-.s-lbl {
-    display: block;
-    font-size: .7rem;
-    color: #64748B;
-    font-weight: 500;
-    margin-top: 3px;
-    text-transform: uppercase;
-    letter-spacing: .06em
-}
-
-@media(max-width:600px) {
-    .stats-strip {
-        grid-template-columns: repeat(2, 1fr)
-    }
-
-    .stat-badge:nth-child(2) {
-        border-right: none
-    }
-
-    .stat-badge {
-        padding: 8px 4px
-    }
 }
