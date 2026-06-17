@@ -1825,6 +1825,248 @@ nav {
     }
 }
 
+/* ── Real Results ── */
+#real-results {
+    background: linear-gradient(180deg, #F4F6FD 0%, #FAFBFF 100%)
+}
+
+.rr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px
+}
+
+.rr-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, .9) inset,
+        0 6px 24px rgba(0, 0, 0, .10),
+        0 2px 6px rgba(0, 0, 0, .07),
+        0 12px 32px rgba(0, 0, 0, .06);
+    transform: perspective(900px) rotateX(2deg);
+    transform-origin: top center;
+    transition: transform .3s ease, box-shadow .3s ease
+}
+
+.rr-card:hover {
+    transform: perspective(900px) rotateX(0deg) translateY(-3px);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, .9) inset,
+        0 12px 40px rgba(0, 0, 0, .13),
+        0 4px 10px rgba(0, 0, 0, .08)
+}
+
+/* Excel green title bar */
+.rr-excel-titlebar {
+    background: #1D6F42;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.rr-excel-filename {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--mono);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.rr-excel-dots {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0
+}
+
+.rr-excel-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%
+}
+
+/* Excel ribbon */
+.rr-excel-ribbon {
+    background: #217346;
+    padding: 4px 12px;
+    display: flex;
+    gap: 14px;
+    border-bottom: 1px solid #1a5c38
+}
+
+.rr-ribbon-tab {
+    font-size: 10px;
+    color: rgba(255, 255, 255, .75);
+    font-weight: 500;
+    padding: 2px 0;
+    cursor: default
+}
+
+.rr-ribbon-tab.active {
+    color: #fff;
+    border-bottom: 2px solid #fff
+}
+
+/* Formula bar */
+.rr-formula-bar {
+    background: #f3f3f3;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.rr-cell-ref {
+    font-size: 10.5px;
+    font-family: var(--mono);
+    color: #333;
+    min-width: 32px;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 8px
+}
+
+.rr-formula-val {
+    font-size: 10.5px;
+    font-family: var(--mono);
+    color: #333
+}
+
+/* Sheet area */
+.rr-sheet {
+    background: #fff;
+    overflow-x: auto
+}
+
+.rr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px
+}
+
+/* Row numbers column */
+.rr-table .rr-rownum {
+    background: #f3f3f3;
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #888;
+    font-size: 10px;
+    text-align: center;
+    padding: 3px 6px;
+    width: 24px;
+    font-family: var(--mono);
+    user-select: none
+}
+
+.rr-table thead th {
+    background: #f3f3f3;
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 2px solid #bbb;
+    padding: 4px 10px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #444;
+    text-align: center;
+    letter-spacing: .03em
+}
+
+.rr-table thead th.rr-rownum {
+    border-bottom: 2px solid #bbb
+}
+
+/* Header row (row 1 styled like Excel header) */
+.rr-table tbody tr.rr-hdr td {
+    background: #1D6F42;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10.5px;
+    border-right: 1px solid #165a35;
+    border-bottom: 1px solid #165a35;
+    padding: 5px 10px
+}
+
+.rr-table tbody tr.rr-hdr .rr-rownum {
+    background: #f3f3f3;
+    color: #888;
+    font-weight: 400
+}
+
+.rr-table tbody tr td {
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 4px 10px;
+    color: #222;
+    font-family: var(--mono);
+    font-size: 11px;
+    white-space: nowrap
+}
+
+.rr-table tbody tr:nth-child(even):not(.rr-hdr):not(.rr-more) td:not(.rr-rownum) {
+    background: #f7fbf9
+}
+
+.rr-table tbody tr:hover:not(.rr-hdr):not(.rr-more) td:not(.rr-rownum) {
+    background: #e8f4ee
+}
+
+.rr-check {
+    color: #1D6F42;
+    font-weight: 700;
+    text-align: center !important
+}
+
+.rr-more td {
+    background: #f9f9f9 !important;
+    color: #999;
+    font-family: var(--font);
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+    border-top: 1px dashed #ddd
+}
+
+/* Sheet tab bar */
+.rr-sheet-tabs {
+    background: #f3f3f3;
+    border-top: 1px solid #d0d0d0;
+    padding: 0 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px
+}
+
+.rr-sheet-tab {
+    font-size: 10px;
+    padding: 4px 12px;
+    border: 1px solid #d0d0d0;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    color: #555;
+    background: #e0e0e0;
+    cursor: default
+}
+
+.rr-sheet-tab.active {
+    background: #fff;
+    color: #1D6F42;
+    font-weight: 700;
+    border-color: #bbb
+}
+
+@media (max-width: 640px) {
+    .rr-grid {
+        grid-template-columns: 1fr
+    }
+
+    .rr-card {
+        transform: none
+    }
+}
+
 /* ── FAQ — EXPANDABLE LIST ── */
 .faq-list {
     max-width: 700px;
