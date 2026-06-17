@@ -108,3 +108,23 @@ document.querySelectorAll(".faq-item-hd").forEach((hd) => {
     }
   });
 });
+
+/* ── Demo Video: autoplay on scroll ── */
+const demoVideo = document.getElementById("demo-video");
+
+if (demoVideo) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          demoVideo.play().catch(() => {});
+        } else {
+          demoVideo.pause();
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  videoObserver.observe(demoVideo);
+}

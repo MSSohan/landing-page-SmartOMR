@@ -1545,6 +1545,63 @@ nav {
     }
 }
 
+#video {
+    background: linear-gradient(135deg, #EDF2FF 0%, #E8EFFE 50%, #F0F4FF 100%);
+    position: relative;
+    overflow: hidden
+}
+
+#video::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 70% at 80% 20%, rgba(30, 90, 232, .07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(67, 56, 202, .05) 0%, transparent 55%)
+}
+
+#video .wrap {
+    position: relative;
+    z-index: 1
+}
+
+#video .sec-hd .h2 {
+    color: var(--ink)
+}
+
+#video .sec-hd .eyebrow {
+    color: var(--blue)
+}
+
+#video .sec-hd .body-lg {
+    color: var(--ink3)
+}
+
+.video-wrap {
+    max-width: 860px;
+    margin: 40px auto 0;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(30, 90, 232, .10),
+        0 24px 80px rgba(10, 20, 60, .12),
+        0 8px 24px rgba(10, 20, 60, .07)
+}
+
+.video-wrap video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000
+}
+
+@media (max-width: 600px) {
+    .video-wrap {
+        border-radius: var(--r)
+    }
+}
 
 /* ════════════════════════════════════
  PHONE FEATURE
@@ -2338,6 +2395,32 @@ footer {
     }
 }
 
+#how-it-works,
+#real-results,
+#faq {
+    position: relative;
+    overflow: hidden
+}
+
+#how-it-works::before,
+#real-results::before,
+#faq::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 70% at 80% 20%, rgba(30, 90, 232, .07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(67, 56, 202, .05) 0%, transparent 55%)
+}
+
+#how-it-works .wrap,
+#real-results .wrap,
+#faq .wrap {
+    position: relative;
+    z-index: 1
+}
+
 
 /* ════════════════════════════════════
  GLOBAL PALETTE OVERRIDES
@@ -2631,8 +2714,16 @@ footer {
 }
 
 /* ── FAQ: light section ── */
+#how-it-works {
+    background: linear-gradient(135deg, #EDF2FF 0%, #F0F4FF 40%, #E8EFFE 100%)
+}
+
+#real-results {
+    background: linear-gradient(135deg, #F0F4FF 0%, #EDF2FF 50%, #E8EFFE 100%)
+}
+
 #faq {
-    background: linear-gradient(180deg, #F4F6FD 0%, #FAFBFF 100%)
+    background: linear-gradient(135deg, #EDF2FF 0%, #E8EFFE 50%, #F0F4FF 100%)
 }
 
 #faq .sec-hd .h2 {
