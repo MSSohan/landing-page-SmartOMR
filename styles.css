@@ -1377,57 +1377,130 @@ nav {
     }
 }
 
-/* ── How It Works ── */
+/* ── How It Works — MODERN CARDS ── */
 .hiw-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
     margin-top: 40px;
-}
-
-.hiw-step {
-    background: var(--surface);
-    border: 1.5px solid var(--border);
-    border-radius: var(--r);
-    padding: 22px 18px;
     position: relative;
+    z-index: 1
 }
 
-.hiw-num {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .08em;
+.hiw-card-new {
+    position: relative;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 32px 24px 26px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s ease, border-color .28s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+    /* stagger on reveal */
+    transition-delay: calc(var(--i) * 90ms)
+}
+
+.hiw-card-new.reveal.on {
+    transition-delay: calc(var(--i) * 90ms)
+}
+
+/* Background gradient glow */
+.hiw-card-bg {
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    width: 140%;
+    height: 100%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(30, 90, 232, .06) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s ease
+}
+
+.hiw-card-new:hover .hiw-card-bg {
+    opacity: 1
+}
+
+.hiw-card-new:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(30, 90, 232, .10), 0 4px 16px rgba(0, 0, 0, .06);
+    border-color: var(--blue-mid)
+}
+
+/* Number badge */
+.hiw-card-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(30, 90, 232, .25);
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.hiw-card-new:hover .hiw-card-badge {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(30, 90, 232, .35)
+}
+
+/* Icon */
+.hiw-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--blue-lt);
     color: var(--blue);
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    transition: transform .25s ease, background .25s ease, color .25s ease
 }
 
-.hiw-icon {
-    font-size: 22px;
-    margin-bottom: 10px;
+.hiw-card-new:hover .hiw-card-icon {
+    transform: scale(1.05);
+    background: var(--blue);
+    color: #fff
 }
 
-.hiw-label {
-    font-size: 14px;
+/* Title */
+.hiw-card-title {
+    font-size: 15px;
     font-weight: 700;
     color: var(--ink);
-    margin-bottom: 5px;
+    line-height: 1.3;
+    margin-bottom: 6px
 }
 
-.hiw-desc {
-    font-size: 12.5px;
+/* Text */
+.hiw-card-text {
+    font-size: 13px;
     color: var(--ink3);
-    line-height: 1.5;
+    line-height: 1.6
 }
 
-@media (max-width: 700px) {
+@media(max-width:820px) {
     .hiw-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px
     }
 }
 
-@media (max-width: 420px) {
+@media(max-width:480px) {
     .hiw-grid {
         grid-template-columns: 1fr;
+        gap: 12px
+    }
+
+    .hiw-card-new {
+        padding: 26px 20px 22px
     }
 }
 
@@ -1752,56 +1825,105 @@ nav {
     }
 }
 
-/* ── FAQ ── */
+/* ── FAQ — EXPANDABLE LIST ── */
 .faq-list {
-    max-width: 680px;
-    margin: 40px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto
 }
 
 .faq-item {
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: var(--r);
-    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    transition: border-color .25s ease
 }
 
-.faq-q {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-    padding: 16px 18px;
-    cursor: pointer;
-    list-style: none;
+.faq-item:first-child {
+    border-top: 1px solid var(--border)
+}
+
+.faq-item.open {
+    border-bottom-color: var(--blue-mid)
+}
+
+.faq-item-hd {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    padding: 16px 4px;
+    cursor: pointer;
     user-select: none;
+    transition: color .2s ease
 }
 
-.faq-q::-webkit-details-marker {
-    display: none;
+.faq-item-hd:hover {
+    color: var(--blue)
 }
 
-.faq-q::after {
-    content: '+';
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--ink3);
+.faq-item-icon {
+    font-size: 17px;
     flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    transition: transform .25s ease
 }
 
-details[open] .faq-q::after {
-    content: '−';
+.faq-item.open .faq-item-icon {
+    transform: scale(1.1)
 }
 
-.faq-a {
-    font-size: 13px;
+.faq-item-q {
+    flex: 1;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: inherit;
+    line-height: 1.4
+}
+
+.faq-item-arrow {
+    flex-shrink: 0;
     color: var(--ink3);
-    padding: 0 18px 16px;
-    line-height: 1.6;
+    transition: transform .3s ease, color .25s ease
+}
+
+.faq-item.open .faq-item-arrow {
+    transform: rotate(180deg);
+    color: var(--blue)
+}
+
+.faq-item.open .faq-item-body {
+    grid-template-rows: 1fr
+}
+
+.faq-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease
+}
+
+.faq-item.open .faq-item-body {
+    max-height: 200px
+}
+
+.faq-item-a {
+    font-size: 13.5px;
+    color: var(--ink3);
+    line-height: 1.3;
+    padding: 0 4px 18px 36px
+}
+
+@media(max-width:500px) {
+    .faq-item-hd {
+        padding: 14px 2px;
+        gap: 10px
+    }
+
+    .faq-item-q {
+        font-size: 13.5px
+    }
+
+    .faq-item-a {
+        padding-left: 36px;
+        font-size: 13px
+    }
 }
 
 /* ════════════════════════════════════
@@ -2122,24 +2244,6 @@ footer {
     background: linear-gradient(180deg, #FAFBFF 0%, #F4F6FD 100%)
 }
 
-.hiw-step {
-    background: #fff;
-    border-color: var(--border);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, .06)
-}
-
-.hiw-num {
-    color: var(--blue)
-}
-
-.hiw-label {
-    color: var(--ink)
-}
-
-.hiw-desc {
-    color: var(--ink3)
-}
-
 /* ── Benefits: dark navy matching USP/phone-feat ── */
 #benefits {
     background: linear-gradient(135deg, #060C20 0%, #0B1535 50%, #080E28 100%);
@@ -2210,33 +2314,90 @@ footer {
     color: var(--blue)
 }
 
-.faq-item {
-    background: #fff;
-    border-color: var(--border);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .05)
+
+/* ════════════════════════════════════
+ SUBTLE ENHANCEMENTS
+════════════════════════════════════ */
+
+/* ── Focus Visible (accessibility) ── */
+:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    border-radius: 4px
 }
 
-.faq-item[open] {
-    border-color: rgba(30, 90, 232, .35);
-    box-shadow: 0 4px 18px rgba(30, 90, 232, .10)
+/* ── Card hover lift (cards only, subtle) ── */
+.ben-item,
+.compare-col {
+    transition: transform .22s ease, box-shadow .22s ease
 }
 
-.faq-q {
-    color: var(--ink)
+.ben-item:hover,
+.compare-col:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
 }
 
-.faq-q::after {
-    color: var(--ink3)
+@media(hover:none) {
+
+    .ben-item:hover,
+    .compare-col:hover {
+        transform: none
+    }
 }
 
-details[open] .faq-q {
-    color: var(--blue)
+/* ── Compare Stats Strip ── */
+#compare-stats {
+    background: linear-gradient(135deg, #060C20 0%, #0B1535 50%, #080E28 100%);
+    padding: clamp(20px, 4vw, 36px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .04)
 }
 
-details[open] .faq-q::after {
-    color: var(--blue)
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0
 }
 
-.faq-a {
-    color: var(--ink3)
+.stat-badge {
+    text-align: center;
+    padding: 10px 8px;
+    border-right: 1px solid rgba(255, 255, 255, .06)
+}
+
+.stat-badge:last-child {
+    border-right: none
+}
+
+.s-num {
+    display: block;
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.02em;
+    line-height: 1.1
+}
+
+.s-lbl {
+    display: block;
+    font-size: .7rem;
+    color: #64748B;
+    font-weight: 500;
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+@media(max-width:600px) {
+    .stats-strip {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .stat-badge:nth-child(2) {
+        border-right: none
+    }
+
+    .stat-badge {
+        padding: 8px 4px
+    }
 }

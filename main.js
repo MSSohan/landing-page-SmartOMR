@@ -60,3 +60,51 @@ setTimeout(() => {
   const bar = document.getElementById("hero-prog");
   if (bar) bar.style.width = "33%";
 }, 700);
+
+/* ── Smooth scroll for anchor links (offset for sticky nav) ── */
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      const navHeight = 56;
+      const top =
+        target.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  });
+});
+
+/* ── Fix FAQ link in mobile drawer ── */
+document
+  .querySelectorAll('.nav-drawer-links a[href="#faq"]')
+  .forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
+
+/* ── FAQ accordion toggle ── */
+document.querySelectorAll(".faq-item-hd").forEach((hd) => {
+  hd.addEventListener("click", () => {
+    const item = hd.closest(".faq-item");
+    const wasOpen = item.classList.contains("open");
+    // close all
+    document.querySelectorAll(".faq-item.open").forEach((i) => {
+      i.classList.remove("open");
+      i.querySelector(".faq-item-hd").setAttribute("aria-expanded", "false");
+    });
+    // toggle clicked
+    if (!wasOpen) {
+      item.classList.add("open");
+      hd.setAttribute("aria-expanded", "true");
+    }
+  });
+  // keyboard support
+  hd.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      hd.click();
+    }
+  });
+});

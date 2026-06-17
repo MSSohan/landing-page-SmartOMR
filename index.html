@@ -5,6 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartOMR — OMR Simplified</title>
+  <meta name="description"
+    content="Scan OMR sheets with your phone. No scanner, no machine. Get results in minutes with AI-powered grading." />
+  <meta property="og:title" content="SmartOMR — OMR Simplified" />
+  <meta property="og:description"
+    content="Scan OMR sheets with your phone. No scanner, no machine. Get results in minutes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omr.uprintbd.com" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -30,7 +38,7 @@
         Smart<span class="c-blue">OMR</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#youtube">How It Works</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#workflow">Features</a></li>
         <li><a href="#phone-feat">Demo</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -56,10 +64,10 @@
 
   <div class="nav-drawer" id="nav-drawer">
     <ul class="nav-drawer-links">
-      <li><a href="#youtube" onclick="closeDrawer()">How It Works</a></li>
+      <li><a href="#how-it-works" onclick="closeDrawer()">How It Works</a></li>
       <li><a href="#workflow" onclick="closeDrawer()">Features</a></li>
       <li><a href="#phone-feat" onclick="closeDrawer()">Demo</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#faq" onclick="closeDrawer()">FAQ</a></li>
     </ul>
     <div class="nav-drawer-btns">
       <a href="https://omr.uprintbd.com" class="btn btn-ghost" onclick="closeDrawer()">Open App</a>
@@ -76,7 +84,7 @@
           <p class="hero-sub">Scan sheets with your phone. Get instant results. Export to Excel automatically.</p>
           <div class="hero-cta">
             <a href="https://omr.uprintbd.com" class="btn btn-primary btn-lg">Try SmartOMR</a>
-            <a href="#youtube" class="btn btn-outline-w btn-lg">See How It Works</a>
+            <a href="#workflow" class="btn btn-outline-w btn-lg">See How It Works</a>
           </div>
         </div>
 
@@ -193,80 +201,101 @@
   </div>
 
   <!-- ══ HOW IT WORKS ══ -->
-<section id="how-it-works">
-  <div class="wrap">
-    <div class="sec-hd tc">
-      <div class="wrap-sm">
-        <div class="eyebrow">How It Works</div>
-        <h2 class="h2">Four steps. That's it.</h2>
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="sec-hd tc">
+        <div class="wrap-sm">
+          <div class="eyebrow">How It Works</div>
+          <h2 class="h2">Three steps. That's it.</h2>
+        </div>
       </div>
-    </div>
-    <div class="hiw-grid">
-      <div class="hiw-step reveal">
-        <div class="hiw-num">01</div>
-        <div class="hiw-icon">📷</div>
-        <div class="hiw-label">Take a photo</div>
-        <div class="hiw-desc">Point your phone at the OMR sheet.</div>
-      </div>
-      <div class="hiw-step reveal">
-        <div class="hiw-num">02</div>
-        <div class="hiw-icon">📤</div>
-        <div class="hiw-label">Upload the sheet</div>
-        <div class="hiw-desc">One tap from camera or gallery.</div>
-      </div>
-      <div class="hiw-step reveal">
-        <div class="hiw-num">03</div>
-        <div class="hiw-icon">⚙️</div>
-        <div class="hiw-label">Auto-scan answers</div>
-        <div class="hiw-desc">AI reads every bubble instantly.</div>
-      </div>
-      <div class="hiw-step reveal">
-        <div class="hiw-num">04</div>
-        <div class="hiw-icon">📊</div>
-        <div class="hiw-label">Get result + export</div>
-        <div class="hiw-desc">Score shown. Excel ready to download.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ══ BENEFITS ══ -->
-<section id="benefits">
-  <div class="wrap">
-    <div class="sec-hd tc">
-      <div class="wrap-sm">
-        <div class="eyebrow">Benefits</div>
-        <h2 class="h2">Built for speed and scale.</h2>
+      <div class="hiw-grid">
+        <div class="hiw-card-new reveal" style="--i:0">
+          <div class="hiw-card-bg"></div>
+          <div class="hiw-card-badge">1</div>
+          <div class="hiw-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+          <h3 class="hiw-card-title">Take a photo</h3>
+          <p class="hiw-card-text">Point your phone at the OMR sheet and snap.</p>
+        </div>
+
+        <div class="hiw-card-new reveal" style="--i:1">
+          <div class="hiw-card-bg"></div>
+          <div class="hiw-card-badge">2</div>
+          <div class="hiw-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="12" y1="18" x2="12" y2="12" />
+              <line x1="9" y1="15" x2="15" y2="15" />
+            </svg>
+          </div>
+          <h3 class="hiw-card-title">Upload the sheet</h3>
+          <p class="hiw-card-text">One tap from camera or gallery.</p>
+        </div>
+
+        <div class="hiw-card-new reveal" style="--i:2">
+          <div class="hiw-card-bg"></div>
+          <div class="hiw-card-badge">3</div>
+          <div class="hiw-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </div>
+          <h3 class="hiw-card-title">Get result + export</h3>
+          <p class="hiw-card-text">Score instantly. Excel ready.</p>
+        </div>
       </div>
     </div>
-    <div class="ben-grid">
-      <div class="ben-item reveal">
-        <span class="ben-icon">⚡</span>
-        <span class="ben-text">10× faster grading</span>
+  </section>
+
+  <!-- ══ BENEFITS ══ -->
+  <section id="benefits">
+    <div class="wrap">
+      <div class="sec-hd tc">
+        <div class="wrap-sm">
+          <div class="eyebrow">Benefits</div>
+          <h2 class="h2">Built for speed and scale.</h2>
+        </div>
       </div>
-      <div class="ben-item reveal">
-        <span class="ben-icon">🎯</span>
-        <span class="ben-text">99%+ accuracy</span>
-      </div>
-      <div class="ben-item reveal">
-        <span class="ben-icon">📵</span>
-        <span class="ben-text">No scanner required</span>
-      </div>
-      <div class="ben-item reveal">
-        <span class="ben-icon">📥</span>
-        <span class="ben-text">Instant Excel export</span>
-      </div>
-      <div class="ben-item reveal">
-        <span class="ben-icon">💰</span>
-        <span class="ben-text">Lower operational cost</span>
-      </div>
-      <div class="ben-item reveal">
-        <span class="ben-icon">📱</span>
-        <span class="ben-text">Works on any smartphone</span>
+      <div class="ben-grid">
+        <div class="ben-item reveal">
+          <span class="ben-icon">⚡</span>
+          <span class="ben-text">10× faster grading</span>
+        </div>
+        <div class="ben-item reveal">
+          <span class="ben-icon">🎯</span>
+          <span class="ben-text">99%+ accuracy</span>
+        </div>
+        <div class="ben-item reveal">
+          <span class="ben-icon">📵</span>
+          <span class="ben-text">No scanner required</span>
+        </div>
+        <div class="ben-item reveal">
+          <span class="ben-icon">📥</span>
+          <span class="ben-text">Instant Excel export</span>
+        </div>
+        <div class="ben-item reveal">
+          <span class="ben-icon">💰</span>
+          <span class="ben-text">Lower operational cost</span>
+        </div>
+        <div class="ben-item reveal">
+          <span class="ben-icon">📱</span>
+          <span class="ben-text">Works on any smartphone</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ══ PHONE FEATURE ══ -->
   <section id="phone-feat">
@@ -333,23 +362,20 @@
         </div>
         <div class="phone-feat-copy reveal">
           <div class="eyebrow">Mobile First</div>
-          <h2 class="h2">Phone is the only tool you need</h2>
-          <p class="body-lg">Works on any smartphone. No setup, no app install, no scanner</p>
+          <h2 class="h2">Your phone is all you need</h2>
+          <p class="body-lg">No scanner. No app. No setup. Just snap and done.</p>
           <ul class="phone-steps">
             <li class="phone-step">
               <span class="phone-step-num">1</span>
-              <span class="phone-step-text"><strong>Open the Student Panel</strong> in any browser — no app to
-                install</span>
+              <span class="phone-step-text">Open browser → <strong>select exam</strong></span>
             </li>
             <li class="phone-step">
               <span class="phone-step-num">2</span>
-              <span class="phone-step-text"><strong>Tap "Take a Photo"</strong> — built-in crop and rotate handles
-                alignment for you</span>
+              <span class="phone-step-text"><strong>Snap a photo</strong> — auto-crop handles the rest</span>
             </li>
             <li class="phone-step">
               <span class="phone-step-num">3</span>
-              <span class="phone-step-text"><strong>Score appears instantly</strong> — with set code and every answer
-                shown on screen</span>
+              <span class="phone-step-text"><strong>Score pops up</strong> with ID, set & answers</span>
             </li>
           </ul>
           <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
@@ -374,8 +400,8 @@
 
         <!-- ── Col 1: Vertical tabs ── -->
         <div class="workflow-tabs">
-          <button class="workflow-tab active" data-panel="student">📋 Student Panel</button>
-          <button class="workflow-tab" data-panel="results">📊 Scan Results</button>
+          <button class="workflow-tab active" data-panel="student">📋 Scan</button>
+          <button class="workflow-tab" data-panel="results">📊 Result</button>
           <button class="workflow-tab" data-panel="folder">📁 Folder Processing</button>
           <button class="workflow-tab" data-panel="export">📥 Export</button>
           <button class="workflow-tab" data-panel="manual">✏️ Manual Entry</button>
@@ -385,77 +411,75 @@
         <div class="workflow-copy-col">
 
           <div class="workflow-panel active" id="wp-student">
-            <div class="eyebrow">Student Panel</div>
-            <h3 class="h3" style="margin-top:8px">Single sheet scanning for students</h3>
+            <div class="eyebrow">Scan</div>
+            <h3 class="h3">Scan one sheet, get instant results</h3>
             <ul class="wp-list">
-              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Select Exam ID — no
-                  login required for students</span></li>
-              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Camera capture or
-                  gallery browse on mobile</span></li>
-              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Built-in crop &amp;
-                  rotate for phone photos</span></li>
-              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Result modal: score, set
-                  code, ID, every answer</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Pick exam & snap — no
+                  login needed</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Camera or gallery on any
+                  phone</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Auto crop &
+                  rotate</span></li>
+              <li><span class="pill pill-blue" style="flex-shrink:0">✓</span><span class="body">Result with score, set &
+                  answers</span></li>
             </ul>
           </div>
 
           <div class="workflow-panel" id="wp-results">
-            <div class="eyebrow">Scan Results</div>
-            <h3 class="h3" style="margin-top:8px">Per-question answer breakdown</h3>
+            <div class="eyebrow">Result</div>
+            <h3 class="h3">Every answer, clearly shown</h3>
             <ul class="wp-list">
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Selected vs. correct
-                  answer for every question</span></li>
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Answer Correct /
-                  Incorrect clearly marked</span></li>
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Crop failure warning
-                  with retry option</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Selected vs correct
+                  per question</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">✓ / ✗ at a
+                  glance</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Crop warnings with
+                  retry</span></li>
             </ul>
           </div>
 
           <div class="workflow-panel" id="wp-folder">
             <div class="eyebrow">Teacher Dashboard</div>
-            <h3 class="h3" style="margin-top:8px">Folder processing</h3>
+            <h3 class="h3">Grade entire batches at once</h3>
             <ul class="wp-list">
-              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Drag &amp; drop a
-                  folder or browse files — all formats accepted</span></li>
-              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Live progress bar with
-                  per-sheet status log via streaming</span></li>
-              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Automatic QR set
-                  detection across mixed-set batches</span></li>
-              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Unreadable sheets
-                  flagged automatically for manual entry</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Drag & drop any file
+                  type</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Live progress &
+                  per-sheet logs</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Auto detects mixed sets
+                  via QR</span></li>
+              <li><span class="pill pill-green" style="flex-shrink:0">✓</span><span class="body">Flags unreadable
+                  sheets</span></li>
             </ul>
           </div>
 
           <div class="workflow-panel" id="wp-export">
             <div class="eyebrow">Excel Export</div>
-            <h3 class="h3" style="margin-top:8px">Export answer and results</h3>
+            <h3 class="h3">Results, ready to use</h3>
             <ul class="wp-list">
-              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Answer
-                    export:</strong> Student ID, Set, Question Number and Answers</span></li>
-              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body"><strong>Result
-                    export:</strong> Student ID, Score, Pass/Fail per row</span></li>
-              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Compatible with any
-                  grading system or LMS</span></li>
-              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Available immediately
-                  after batch completes</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Answer export: ID, Set,
+                  Q, Answer</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Result export: ID,
+                  Score, Pass/Fail</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Works with any
+                  LMS</span></li>
+              <li><span class="pill pill-amber" style="flex-shrink:0">✓</span><span class="body">Available right after
+                  batch</span></li>
             </ul>
           </div>
 
           <div class="workflow-panel" id="wp-manual">
             <div class="eyebrow">Manual Entry</div>
-            <h3 class="h3" style="margin-top:8px">No student result is ever lost</h3>
-            <p class="body" style="margin-top:7px">When a sheet is too damaged or blurry to scan, SmartOMR flags it and
-              opens Manual Entry — so you can still capture every result.</p>
+            <h3 class="h3">Never lose a student result</h3>
             <ul class="wp-list">
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Zoomable image viewer
-                  with rotate and pan controls</span></li>
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">OMR-style bubble grid
-                  for intuitive answer entry</span></li>
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Student ID and Set
-                  Code fields with inline validation</span></li>
-              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Skip option — defer
-                  individual sheets, process the rest</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Zoom, rotate & pan
+                  blurry sheets</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Bubble grid for quick
+                  entry</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">ID & set code with
+                  validation</span></li>
+              <li><span class="pill pill-indigo" style="flex-shrink:0">✓</span><span class="body">Skip & come back
+                  later</span></li>
             </ul>
           </div>
 
@@ -827,43 +851,144 @@
     </div>
   </section>
 
-  <!-- ══ FAQ ══ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-hd tc">
-      <div class="wrap-sm">
-        <div class="eyebrow">FAQ</div>
-        <h2 class="h2">Common questions.</h2>
+  <!-- ══ COMPARE STATS ══ -->
+  <section id="compare-stats">
+    <div class="wrap">
+      <div class="stats-strip">
+        <div class="stat-badge reveal">
+          <span class="s-num">50,000+</span>
+          <span class="s-lbl">Sheets Processed</span>
+        </div>
+        <div class="stat-badge reveal">
+          <span class="s-num">99%</span>
+          <span class="s-lbl">Accuracy</span>
+        </div>
+        <div class="stat-badge reveal">
+          <span class="s-num">10×</span>
+          <span class="s-lbl">Faster Grading</span>
+        </div>
+        <div class="stat-badge reveal">
+          <span class="s-num">1,500+</span>
+          <span class="s-lbl">Teachers</span>
+        </div>
       </div>
     </div>
-    <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary class="faq-q">Do I need a scanner?</summary>
-        <div class="faq-a">No — only a smartphone is required.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary class="faq-q">How accurate is it?</summary>
-        <div class="faq-a">99%+ accuracy under normal lighting conditions.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary class="faq-q">How fast does it process sheets?</summary>
-        <div class="faq-a">50 sheets in under 10 minutes.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary class="faq-q">How many sheets can it handle?</summary>
-        <div class="faq-a">Unlimited — process entire class batches in one go.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary class="faq-q">Can I export results?</summary>
-        <div class="faq-a">Yes — one-click Excel export after every batch.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary class="faq-q">Is it easy to use?</summary>
-        <div class="faq-a">No training needed — open a browser, shoot, done.</div>
-      </details>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-hd tc">
+        <div class="wrap-sm">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="h2">Quick answers to common questions</h2>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">📱</span>
+            <span class="faq-item-q">Do I need a scanner?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">Not at all. Just a smartphone. Snap the sheet, upload it, done. No hardware needed.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">🎯</span>
+            <span class="faq-item-q">Can it handle bad lighting?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">99%+ accuracy under normal conditions. Blurry or damaged sheets get flagged for
+              manual entry.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">⚡</span>
+            <span class="faq-item-q">How long does it take?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">50 sheets in under 10 minutes. Results appear as each sheet finishes processing.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">📊</span>
+            <span class="faq-item-q">Can I export to Excel?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">Yes. One click. Answer exports with ID, set, and per-question data. Result exports
+              with scores and pass/fail.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">👨‍🏫</span>
+            <span class="faq-item-q">How many students per batch?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">Unlimited. Drag in a folder with 200 sheets — it processes the whole batch in one
+              go.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-item-hd" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-item-icon">🔧</span>
+            <span class="faq-item-q">Is there any setup?</span>
+            <span class="faq-item-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+          <div class="faq-item-body">
+            <div class="faq-item-a">Zero. Open a browser, select your exam, snap a photo. That's it. No installs, no
+              training.</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ══ FOOTER ══ -->
   <footer>
@@ -881,9 +1006,10 @@
           Smart<span class="c-blue">OMR</span>
         </div>
         <nav class="footer-links">
-          <a href="#youtube">How It Works</a>
+          <a href="#how-it-works">How It Works</a>
           <a href="#workflow">Features</a>
-          <a href="#phone-feat">See It In Action</a>
+          <a href="#phone-feat">Demo</a>
+          <a href="#faq">FAQ</a>
           <a href="https://omr.uprintbd.com" target="_blank">SmartOMR</a>
         </nav>
         <div class="footer-copy">© 2026 SmartOMR · All rights reserved.</div>
