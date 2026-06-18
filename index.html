@@ -40,7 +40,6 @@
       <ul class="nav-links">
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#workflow">Features</a></li>
-        <li><a href="#demo-video">Watch Demo</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <div class="nav-cta">
@@ -66,7 +65,6 @@
     <ul class="nav-drawer-links">
       <li><a href="#how-it-works" onclick="closeDrawer()">How It Works</a></li>
       <li><a href="#workflow" onclick="closeDrawer()">Features</a></li>
-      <li><a href="#demo-video" onclick="closeDrawer()">Watch Demo</a></li>
       <li><a href="#faq" onclick="closeDrawer()">FAQ</a></li>
     </ul>
     <div class="nav-drawer-btns">
@@ -88,76 +86,12 @@
           </div>
         </div>
 
-        <!-- Mockup -->
+        <!-- Demo Video -->
         <div class="hero-mockup-wrap">
-          <div class="mockup">
-            <div class="mbar">
-              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-              <span class="mbar-title">SmartOMR · OMR Scan</span>
-            </div>
-            <div class="mbody">
-              <div
-                style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)">
-                Processing · 6 Sheets</div>
-              <div
-                style="background:var(--surface);border:1.5px dashed var(--blue-mid);border-radius:8px;padding:11px;display:flex;flex-direction:column;gap:8px">
-                <div class="sheet-row">
-                  <div class="sheet-thumb"></div>
-                  <div class="sheet-info">
-                    <div class="sheet-name">IMG_0421.jpg</div>
-                    <div class="sheet-sub">ID: 18702051 · Set A · QR ✓</div>
-                  </div>
-                  <span class="sbadge sbadge-done">✓ Done</span>
-                </div>
-                <div class="sheet-row">
-                  <div class="sheet-thumb" style="background:linear-gradient(135deg,#dce4f5,#c8d4ec)"></div>
-                  <div class="sheet-info">
-                    <div class="sheet-name">IMG_0422.jpg</div>
-                    <div class="sheet-sub">ID: 18702052 · Set B · QR ✓</div>
-                  </div>
-                  <span class="sbadge sbadge-done">✓ Done</span>
-                </div>
-                <div class="sheet-row">
-                  <div class="sheet-thumb" style="background:linear-gradient(135deg,#e4eaff,#d4dcff)"></div>
-                  <div class="sheet-info">
-                    <div class="sheet-name">IMG_0423.jpg</div>
-                    <div class="sheet-sub">Processing…</div>
-                  </div>
-                  <span class="sbadge sbadge-proc">⟳ Scanning</span>
-                </div>
-              </div>
-              <div>
-                <div
-                  style="display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);margin-bottom:5px">
-                  <span>Scanning…</span><span>2 / 6 done</span>
-                </div>
-                <div class="p-bar-wrap">
-                  <div class="p-bar-fill" id="hero-prog" style="width:0"></div>
-                </div>
-              </div>
-              <div class="score-row">
-                <div>
-                  <div
-                    style="font-size:10px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">
-                    18702051 · Set A</div>
-                  <div class="bubbles">
-                    <div class="bub bub-ok">A</div>
-                    <div class="bub bub-ok">B</div>
-                    <div class="bub bub-no">C</div>
-                    <div class="bub bub-ok">D</div>
-                    <div class="bub bub-ok">A</div>
-                    <div class="bub bub-ok">B</div>
-                    <div class="bub bub-no">A</div>
-                    <div class="bub bub-ok">C</div>
-                  </div>
-                </div>
-                <div style="text-align:right">
-                  <div class="score-big">38<span style="font-size:.65rem;font-weight:400;color:var(--ink3)"> / 40</span>
-                  </div>
-                  <div class="score-pct">95% · Excellent</div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-video-wrap">
+            <video id="hero-video" src="demo.mp4" loop muted controls playsinline autoplay preload="auto"
+              poster="poster.jpeg">
+            </video>
           </div>
         </div>
       </div>
@@ -298,7 +232,7 @@
   </section>
 
   <!-- ══ DEMO VIDEO ══ -->
-  <section id="video">
+  <!-- <section id="video">
     <div class="wrap">
       <div class="sec-hd tc">
         <div class="wrap-sm">
@@ -311,7 +245,7 @@
         </video>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ══ PHONE FEATURE ══ -->
   <section id="phone-feat">
@@ -1238,9 +1172,7 @@
         <nav class="footer-links">
           <a href="#how-it-works">How It Works</a>
           <a href="#workflow">Features</a>
-          <a href="#demo-video">Watch Demo</a>
           <a href="#faq">FAQ</a>
-          <a href="https://omr.uprintbd.com" target="_blank">SmartOMR</a>
         </nav>
         <div class="footer-copy">© 2026 SmartOMR · All rights reserved.</div>
       </div>
