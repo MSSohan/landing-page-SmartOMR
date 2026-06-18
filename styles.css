@@ -580,7 +580,8 @@ nav {
     margin-top: 40px;
     max-width: 700px;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    border-radius: var(--r-md);
 }
 
 /* Pain col — right aligned */
@@ -692,23 +693,6 @@ nav {
     position: relative;
     z-index: 1
 }
-
-/* @media (max-width: 600px) {
-    .compare-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px
-    }
-
-    .compare-center {
-        display: none
-    }
-
-    .compare-col.pain .compare-item,
-    .compare-col.pain .compare-col-hd {
-        justify-content: flex-start;
-        text-align: left
-    }
-} */
 
 /* ── How It Works — MODERN CARDS ── */
 .hiw-grid {
