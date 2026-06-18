@@ -131,19 +131,42 @@ document.querySelectorAll(".faq-item-hd").forEach((hd) => {
 
 /* ── Hero video autoplay ── */
 const heroVideo = document.getElementById("hero-video");
-if (demoVideo) {
+if (heroVideo) {
   const videoObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          demoVideo.play().catch(() => {});
+          heroVideo.play().catch(() => {});
         } else {
-          demoVideo.pause();
+          heroVideo.pause();
         }
       });
     },
     { threshold: 0.4 }
   );
 
-  videoObserver.observe(demoVideo);
+  videoObserver.observe(heroVideo);
 }
+
+/* ── Dark Mode Toggle ── */
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Load saved theme from localStorage or default to light
+const savedTheme = localStorage.getItem("theme") || "light";
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+/* ── Fix: nav drawer link listeners for FAQ ── */
+document
+  .querySelectorAll(".nav-drawer-links a[href=\"#faq\"]")
+  .forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
