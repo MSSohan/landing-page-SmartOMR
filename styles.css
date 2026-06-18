@@ -21,7 +21,7 @@
     --border: #DDE1EF;
     --border2: #CDD3E8;
     --r-sm: 7px;
-    --r: 11px;
+    --r-md: 12px;
     --r-lg: 17px;
     --r-xl: 23px;
     --sh: 0 4px 24px rgba(10, 20, 60, .07), 0 1px 4px rgba(10, 20, 60, .04);
@@ -505,7 +505,7 @@ nav {
 }
 
 .hero-display {
-    font-size: clamp(1.85rem, 4.8vw, 3.2rem);
+    font-size: clamp(1.85rem, 4.5vw, 2.8rem);
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -.03em;
@@ -541,7 +541,7 @@ nav {
 
 .hero-video-wrap {
     position: relative;
-    border-radius: var(--r-xl);
+    border-radius: var(--r-md);
     overflow: hidden;
     box-shadow:
         0 0 0 1px rgba(255, 255, 255, .08),
@@ -569,570 +569,146 @@ nav {
     }
 }
 
-
-/* ════════════════════════════════════
- USP STRIP
-════════════════════════════════════ */
-#usp {
-    background: var(--ink);
-    padding: 0
-}
-
-.usp-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0
-}
-
-.usp-item {
-    padding: clamp(15px, 2.5vw, 20px) clamp(15px, 2vw, 20px);
-    border-right: 1px solid rgba(255, 255, 255, .07);
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    transition: background .18s
-}
-
-.usp-item:last-child {
-    border-right: none
-}
-
-.usp-item:hover {
-    background: rgba(255, 255, 255, .04)
-}
-
-.usp-icon {
-    font-size: 20px;
-    flex-shrink: 0;
-    margin-top: 1px
-}
-
-.usp-text strong {
-    display: block;
-    font-size: .8125rem;
-    font-weight: 700;
-    color: #E2E8F0;
-    margin-bottom: 2px
-}
-
-.usp-text span {
-    font-size: .75rem;
-    color: #64748B;
-    line-height: 1.5
-}
-
-@media(max-width:820px) {
-    .usp-strip {
-        grid-template-columns: repeat(2, 1fr);
-        border-top: 1px solid rgba(255, 255, 255, .07)
-    }
-
-    .usp-item {
-        border-bottom: 1px solid rgba(255, 255, 255, .07)
-    }
-}
-
-
 /* ════════════════════════════════════
  COMPARE
 ════════════════════════════════════ */
-#compare {
-    background: var(--surface);
-    padding: clamp(15px, 7vw, 50px) 0
-}
-
 .compare-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(12px, 2vw, 20px);
-    margin-top: clamp(28px, 4vw, 40px)
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-top: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto
 }
 
-.compare-col {
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--sh)
+/* Pain col — right aligned */
+.compare-col.pain .compare-item {
+    justify-content: flex-end;
+    text-align: right
+}
+
+.compare-col.pain .compare-col-hd {
+    justify-content: flex-end;
+    text-align: right
+}
+
+/* Gain col — left aligned */
+.compare-col.gain .compare-item {
+    justify-content: flex-start;
+    text-align: left
+}
+
+.compare-col.gain .compare-col-hd {
+    justify-content: flex-start;
+    text-align: left
 }
 
 .compare-col-hd {
-    font-size: .8125rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 13px 18px;
-    letter-spacing: .01em
-}
-
-.pain .compare-col-hd {
-    background: #FEF2F2;
-    color: var(--red);
-    border-bottom: 1px solid #FECACA
-}
-
-.gain .compare-col-hd {
-    background: #F0FDF4;
-    color: var(--green-dk);
-    border-bottom: 1px solid #BBF7D0
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08)
 }
 
 .compare-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
-    padding: 11px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: .8125rem;
-    color: var(--ink2);
-    line-height: 1.55;
-    background: #fff
+    padding: 14px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, .07)
 }
 
 .compare-item:last-child {
     border-bottom: none
 }
 
-.ci {
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: 1px
-}
-
-
-/* ════════════════════════════════════
- WORKFLOW TABS
-════════════════════════════════════ */
-#workflow {
-    background: var(--surface);
-    padding: clamp(15px, 7vw, 50px) 0
-}
-
-.workflow-3col {
-    display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    gap: clamp(16px, 2.5vw, 28px);
-    align-items: start
-}
-
-.workflow-tabs {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    position: sticky;
-    top: 72px
-}
-
-.workflow-tab {
+/* Icons */
+.ci-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: var(--r-sm);
-    font-size: .8rem;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, .08);
-    background: rgba(255, 255, 255, .04);
-    color: #94A3B8;
-    transition: all .15s;
-    text-align: left;
-    width: 100%
+    justify-content: center;
+    flex-shrink: 0
 }
 
-.workflow-tab:hover {
-    background: rgba(30, 90, 232, .2);
-    border-color: rgba(30, 90, 232, .4);
-    color: #fff
+.ci-bad {
+    background: rgba(212, 32, 32, .18);
+    border: 1px solid rgba(212, 32, 32, .25)
 }
 
-.workflow-tab.active {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: #fff;
-    box-shadow: 0 2px 14px rgba(30, 90, 232, .38)
+.ci-bad svg {
+    stroke: #FCA5A5
 }
 
-/* copy and ui columns just show/hide active panel */
-.workflow-copy-col,
-.workflow-ui-col {
-    min-width: 0
+.ci-good {
+    background: rgba(15, 158, 82, .18);
+    border: 1px solid rgba(15, 158, 82, .25)
 }
 
-.workflow-panel {
-    display: none
+.ci-good svg {
+    stroke: #6EE7A4
 }
 
-.workflow-panel.active {
-    display: block
-}
-
-/* copy column text on dark bg */
-.workflow-copy-col .workflow-panel .eyebrow {
-    color: #7EB3FF
-}
-
-.workflow-copy-col .workflow-panel .h3 {
-    color: #fff;
-    margin-top: 8px
-}
-
-.workflow-copy-col .workflow-panel .body {
-    color: #94A3B8
-}
-
-.workflow-copy-col .workflow-panel .wp-list li {
-    color: #CBD5E1
-}
-
-/* ui panels keep white card style */
-.workflow-ui-col .wp-panel,
-.workflow-ui-col .wp-panel-ui {
-    background: rgba(255, 255, 255, .97);
-    border-color: rgba(255, 255, 255, .10);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .18)
-}
-
-@media(max-width:960px) {
-    .workflow-3col {
-        grid-template-columns: 1fr;
-    }
-
-    .workflow-tabs {
-        flex-direction: row;
-        flex-wrap: wrap;
-        position: static
-    }
-
-    .workflow-tab {
-        width: auto
-    }
-}
-
-.wp-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    margin-top: 14px
-}
-
-.wp-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-    font-size: .8125rem;
-    color: var(--ink2)
-}
-
-.wp-panel {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--sh)
-}
-
-.wp-panel-ui {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--sh)
-}
-
-.wp-header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 11px 16px;
+/* Center VS */
+.compare-center {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 6px
+    justify-content: center;
+    padding: 0 20px;
+    position: relative
 }
 
-.wp-title {
+.compare-center::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, .12) 20%,
+            rgba(255, 255, 255, .12) 80%,
+            transparent 100%)
+}
+
+.compare-vs {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: var(--r-xl);
+    padding: 6px 12px;
     font-size: 11px;
-    font-weight: 700;
-    color: var(--ink2);
-    letter-spacing: .03em
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: .08em;
+    position: relative;
+    z-index: 1
 }
 
-.wp-body {
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px
-}
-
-.up-zone {
-    background: var(--surface);
-    border: 1.5px dashed var(--blue-mid);
-    border-radius: var(--r);
-    padding: 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    color: var(--ink3)
-}
-
-.up-zone-text {
-    font-size: 11.5px;
-    color: var(--ink2)
-}
-
-/* Q-row (result detail) */
-.q-row {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 5px
-}
-
-.q-lbl {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--ink3);
-    width: 18px;
-    flex-shrink: 0
-}
-
-.q-bubbles {
-    display: flex;
-    gap: 3px
-}
-
-.bubble {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 1.5px solid var(--border);
-    font-size: 7px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink3)
-}
-
-.b-ok {
-    background: var(--green);
-    border-color: var(--green);
-    color: #fff
-}
-
-.b-bad {
-    background: var(--red-lt);
-    border-color: #FCA5A5;
-    color: var(--red)
-}
-
-.q-verdict {
-    font-size: 10px;
-    font-weight: 700;
-    margin-left: 3px
-}
-
-.qv-ok {
-    color: var(--green-dk)
-}
-
-.qv-bad {
-    color: var(--red)
-}
-
-/* Log */
-.log-entry {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 10px;
-    border-bottom: 1px solid var(--surface2);
-    font-size: 10px;
-    color: var(--ink2);
-    font-family: var(--mono)
-}
-
-.log-entry:last-child {
-    border-bottom: none
-}
-
-.log-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0
-}
-
-.ld-g {
-    background: var(--green)
-}
-
-.ld-b {
-    background: var(--amber)
-}
-
-.prog-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--ink3);
-    margin-bottom: 5px
-}
-
-.p-bar {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 99px;
-    overflow: hidden
-}
-
-.p-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--blue), #60A5FA);
-    border-radius: 99px;
-    transition: width .8s
-}
-
-.file-row {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--surface2);
-    font-size: 11px
-}
-
-.file-row:last-child {
-    border-bottom: none
-}
-
-.file-thumb {
-    width: 32px;
-    height: 40px;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-    background: linear-gradient(135deg, #e8ecf4, #d1d8e8);
-    flex-shrink: 0
-}
-
-.file-name {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ink)
-}
-
-.file-sub {
-    font-size: 10px;
-    color: var(--ink3)
-}
-
-/* Excel */
-.xls-row {
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--border)
-}
-
-.xls-row:last-child {
-    border-bottom: none
-}
-
-.xc {
-    flex: 1;
-    padding: 6px 9px;
-    font-size: 10px;
-    font-family: var(--mono);
-    border-right: 1px solid var(--border);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
-.xc:last-child {
-    border-right: none
-}
-
-.xc.hd {
-    background: #E8EFFC;
-    font-weight: 700;
-    color: var(--blue);
-    font-size: 10px
-}
-
-.xc.ok {
-    color: var(--green-dk);
-    font-weight: 700
-}
-
-.xc.fail {
-    color: var(--red);
-    font-weight: 700
-}
-
-/* Manual entry */
-.me-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px
-}
-
-.me-q {
-    background: var(--surface);
-    border-radius: 5px;
-    padding: 5px 4px;
-    text-align: center
-}
-
-.me-q-lbl {
-    font-size: 9px;
-    font-weight: 700;
-    color: var(--ink3)
-}
-
-.me-opts {
-    display: flex;
-    gap: 2px;
-    justify-content: center;
-    margin-top: 4px
-}
-
-.me-opt {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    font-size: 5.5px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink3)
-}
-
-.me-opt.sel {
-    background: var(--indigo);
-    border-color: var(--indigo);
-    color: #fff
-}
-
-@media(max-width:820px) {
-    .workflow-panel.active {
-        grid-template-columns: 1fr
+/* @media (max-width: 600px) {
+    .compare-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px
     }
 
-    .wp-panel-ui,
-    .wp-panel {
-        box-shadow: none
+    .compare-center {
+        display: none
     }
-}
 
-@media(max-width:540px) {
-    .workflow-tab {
-        padding: 6px 10px;
-        font-size: .75rem
+    .compare-col.pain .compare-item,
+    .compare-col.pain .compare-col-hd {
+        justify-content: flex-start;
+        text-align: left
     }
-}
+} */
 
 /* ── How It Works — MODERN CARDS ── */
 .hiw-grid {
@@ -1260,106 +836,6 @@ nav {
         padding: 16px 16px 14px
     }
 }
-
-/* ── Benefits ── */
-.ben-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 36px;
-}
-
-.ben-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: var(--r);
-    padding: 16px 18px;
-}
-
-.ben-icon {
-    font-size: 20px;
-    flex-shrink: 0;
-}
-
-.ben-text {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-}
-
-@media (max-width: 700px) {
-    .ben-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 420px) {
-    .ben-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* 
-#video {
-    background: linear-gradient(135deg, #EDF2FF 0%, #E8EFFE 50%, #F0F4FF 100%);
-    position: relative;
-    overflow: hidden
-}
-
-#video::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 60% 70% at 80% 20%, rgba(30, 90, 232, .07) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(67, 56, 202, .05) 0%, transparent 55%)
-}
-
-#video .wrap {
-    position: relative;
-    z-index: 1
-}
-
-#video .sec-hd .h2 {
-    color: var(--ink)
-}
-
-#video .sec-hd .eyebrow {
-    color: var(--blue)
-}
-
-#video .sec-hd .body-lg {
-    color: var(--ink3)
-}
-
-.video-wrap {
-    max-width: 860px;
-    margin: 40px auto 0;
-    border-radius: var(--r-xl);
-    overflow: hidden;
-    box-shadow:
-        0 0 0 1px rgba(30, 90, 232, .10),
-        0 24px 80px rgba(10, 20, 60, .12),
-        0 8px 24px rgba(10, 20, 60, .07)
-}
-
-.video-wrap video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    background: #000
-}
-
-@media (max-width: 600px) {
-    .video-wrap {
-        border-radius: var(--r)
-    }
-} */
 
 /* ════════════════════════════════════
  PHONE FEATURE
@@ -1631,8 +1107,16 @@ nav {
         text-align: center
     }
 
+    .phone-feat-copy a {
+        margin-left: 35px;
+    }
+
+    .phone-steps {
+        margin-left: 30px;
+    }
+
     .phone-step {
-        text-align: left
+        text-align: left;
     }
 
     .phone-visual {
@@ -1647,9 +1131,12 @@ nav {
 
 .rr-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
-    margin-top: 40px
+    margin-top: 40px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .rr-card {
@@ -1884,7 +1371,7 @@ nav {
 
 /* ── FAQ — EXPANDABLE LIST ── */
 .faq-list {
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -1916,15 +1403,26 @@ nav {
 }
 
 .faq-item-icon {
-    font-size: 17px;
-    flex-shrink: 0;
-    width: 24px;
-    text-align: center;
-    transition: transform .25s ease
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-sm);
+    background: var(--blue-lt);
+    flex-shrink: 0
+}
+
+.faq-item-icon svg {
+    stroke: var(--blue)
 }
 
 .faq-item.open .faq-item-icon {
-    transform: scale(1.1)
+    background: var(--blue);
+}
+
+.faq-item.open .faq-item-icon svg {
+    stroke: #fff
 }
 
 .faq-item-q {
@@ -1968,6 +1466,10 @@ nav {
 }
 
 @media(max-width:500px) {
+    .faq-list {
+        max-width: 80%
+    }
+
     .faq-item-hd {
         padding: 14px 2px;
         gap: 10px
@@ -2283,98 +1785,6 @@ nav {
 .compare-item {
     background: rgba(255, 255, 255, .04);
     border-bottom-color: rgba(255, 255, 255, .07);
-    color: #CBD5E1
-}
-
-/* ── Workflow: dark with blue lean ── */
-#workflow {
-    background: linear-gradient(135deg, #060C20 0%, #0B1535 45%, #0E1240 100%);
-    position: relative;
-    overflow: hidden
-}
-
-#workflow::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(30, 90, 232, .15) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 5% 80%, rgba(67, 56, 202, .12) 0%, transparent 55%)
-}
-
-#workflow::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)
-}
-
-#workflow .wrap {
-    position: relative;
-    z-index: 1
-}
-
-/* Workflow text on dark */
-#workflow .sec-hd .h2 {
-    color: #fff
-}
-
-#workflow .sec-hd .eyebrow {
-    color: #7EB3FF
-}
-
-#workflow .sec-hd .body-lg {
-    color: #94A3B8
-}
-
-/* Workflow tabs on dark */
-#workflow .workflow-tab {
-    background: rgba(255, 255, 255, .05);
-    border-color: rgba(255, 255, 255, .10);
-    color: #94A3B8
-}
-
-#workflow .workflow-tab:hover {
-    background: rgba(30, 90, 232, .22);
-    border-color: rgba(30, 90, 232, .45);
-    color: #fff
-}
-
-#workflow .workflow-tab.active {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: #fff;
-    box-shadow: 0 2px 14px rgba(30, 90, 232, .38)
-}
-
-/* Workflow panels on dark: keep white cards readable */
-#workflow .wp-panel,
-#workflow .wp-panel-ui {
-    background: rgba(255, 255, 255, .97);
-    border-color: rgba(255, 255, 255, .12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .2)
-}
-
-/* Left copy text in workflow panels */
-#workflow .workflow-panel.active>div:first-child .eyebrow {
-    color: #7EB3FF
-}
-
-#workflow .workflow-panel.active>div:first-child .h3 {
-    color: #fff
-}
-
-#workflow .workflow-panel.active>div:first-child .body {
-    color: #94A3B8
-}
-
-#workflow .workflow-panel.active>div:first-child .wp-list li {
     color: #CBD5E1
 }
 
