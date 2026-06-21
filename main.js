@@ -7,6 +7,7 @@ ham.addEventListener("click", () => {
   ham.setAttribute("aria-expanded", open);
   document.body.style.overflow = open ? "hidden" : "";
 });
+
 function closeDrawer() {
   drawer.classList.remove("open");
   ham.classList.remove("open");
@@ -17,31 +18,26 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 820) closeDrawer();
 });
 
-/* ── Workflow tabs ── */
-document.querySelectorAll(".workflow-tab").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const id = tab.dataset.panel;
-    document
-      .querySelectorAll(".workflow-tab")
-      .forEach((t) => t.classList.remove("active"));
-    document
-      .querySelectorAll(".workflow-panel")
-      .forEach((p) => p.classList.remove("active"));
-    tab.classList.add("active");
-    document.getElementById("wp-" + id).classList.add("active");
-    document.getElementById("wp-" + id + "-ui").classList.add("active");
-    document
-      .querySelectorAll("#wp-" + id + " .reveal, #wp-" + id + "-ui .reveal")
-      .forEach((el) => {
-        el.classList.remove("on");
-        requestAnimationFrame(() =>
-          requestAnimationFrame(() => el.classList.add("on"))
-        );
+/* ── Hero video autoplay ───────────────────────────────────────── */
+const heroVideo = document.getElementById("hero-video");
+if (heroVideo) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          heroVideo.play().catch(() => {});
+        } else {
+          heroVideo.pause();
+        }
       });
-  });
-});
+    },
+    { threshold: 0.4 }
+  );
 
-/* ── Scroll reveal ── */
+  videoObserver.observe(heroVideo);
+}
+
+/* ── Scroll reveal ───────────────────────────────────────── */
 const obs = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -55,7 +51,7 @@ const obs = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-/* ── Hero progress bar animate ── */
+/* ── Hero progress bar animate ───────────────────────────────────────── */
 setTimeout(() => {
   const bar = document.getElementById("hero-prog");
   if (bar) bar.style.width = "33%";
@@ -77,14 +73,14 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* ── Fix FAQ link in mobile drawer ── */
+/* ── Fix FAQ link in mobile drawer ───────────────────────────────────────── */
 document
   .querySelectorAll('.nav-drawer-links a[href="#faq"]')
   .forEach((link) => {
     link.addEventListener("click", closeDrawer);
   });
 
-/* ── FAQ accordion toggle ── */
+/* ── FAQ accordion toggle ───────────────────────────────────────── */
 document.querySelectorAll(".faq-item-hd").forEach((hd) => {
   hd.addEventListener("click", () => {
     const item = hd.closest(".faq-item");
@@ -108,22 +104,3 @@ document.querySelectorAll(".faq-item-hd").forEach((hd) => {
     }
   });
 });
-
-/* ── Hero video autoplay ── */
-const heroVideo = document.getElementById("hero-video");
-if (heroVideo) {
-  const videoObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          heroVideo.play().catch(() => {});
-        } else {
-          heroVideo.pause();
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-
-  videoObserver.observe(heroVideo);
-}

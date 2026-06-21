@@ -180,12 +180,14 @@ section {
 
 .btn-ghost {
     background: transparent;
-    color: var(--ink);
-    border-color: var(--border)
+    color: var(--blue);
+    border-color: var(--border);
+    font-size: 1rem;
 }
 
 .btn-ghost:hover {
     background: var(--surface);
+    color: var(--blue-dk);
     border-color: var(--ink3)
 }
 
@@ -297,7 +299,7 @@ nav {
     align-items: center;
     gap: 8px;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     letter-spacing: -.02em;
     color: var(--ink);
     flex-shrink: 0
@@ -321,7 +323,7 @@ nav {
 }
 
 .nav-links a {
-    font-size: .825rem;
+    font-size: .9rem;
     font-weight: 500;
     color: var(--ink2);
     transition: color .14s
@@ -395,7 +397,7 @@ nav {
 
 .nav-drawer-links a {
     display: block;
-    padding: 12px 0;
+    padding: 10px 10px;
     font-size: 1rem;
     font-weight: 500;
     color: var(--ink);
