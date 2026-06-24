@@ -5,6 +5,7 @@ const LANG = {
     nav_results: "Results",
     nav_demo: "Demo",
     nav_faq: "FAQ",
+    nav_contact: "Contact",
     nav_try: "Try Now",
 
     /* Hero */
@@ -58,6 +59,7 @@ const LANG = {
     pf_step2: "<strong>Snap a photo</strong> — SmartOMR handles the rest",
     pf_step3: "<strong>Score pops up</strong> with ID, set & answers",
     pf_cta: "Try It Now",
+
     /* Phone UI strings */
     phone_hdr_title: "SmartOMR Assess",
     phone_hdr_sub: "Student Panel",
@@ -82,10 +84,13 @@ const LANG = {
     faq_a4: "Zero. Open a browser, select exam, snap. No install needed.",
 
     /* Footer */
+    footer_tagline: "Turn OMR sheets into results with a single photo.",
+    footer_col_links: "Quick Links",
     footer_how: "How It Works",
     footer_results: "Results",
     footer_demo: "Demo",
     footer_faq: "FAQ",
+    footer_col_contact: "Get in Touch",
     footer_copy: "© 2026 SmartOMR · All rights reserved.",
   },
 
@@ -95,6 +100,7 @@ const LANG = {
     nav_results: "রেজাল্ট",
     nav_demo: "ডেমো",
     nav_faq: "সাধারণ প্রশ্ন",
+    nav_contact: "যোগাযোগ",
     nav_try: "এখনই ব্যবহার করুন",
 
     /* Hero */
@@ -172,10 +178,14 @@ const LANG = {
     faq_a4: "না, কোনো সেটআপ দরকার নেই। সরাসরি ব্যবহার করা যায়",
 
     /* Footer */
+    footer_tagline:
+      "মোবাইলে ছবি তুলুন, OMR এর রেজাল্ট পেয়ে যান মিনিটেই।",
+    footer_col_links: "গুরুত্বপূর্ণ লিংকসমূহ",
     footer_how: "কীভাবে কাজ করে",
     footer_results: "রেজাল্ট",
     footer_demo: "ডেমো",
     footer_faq: "সাধারণ প্রশ্ন",
-    footer_copy: "© ২০২৬ SmartOMR · সর্বস্বত্ব সংরক্ষিত।",
+    footer_col_contact: "যোগাযোগ করুন",
+    footer_copy: "© ২০২৬ SmartOMR · সমস্ত অধিকার সংরক্ষিত।",
   },
 };

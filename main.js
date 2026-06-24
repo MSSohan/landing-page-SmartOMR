@@ -116,6 +116,8 @@ const I18N_MAP = [
   { key: "nav_results", sel: ".nav-links li:nth-child(2) a", prop: "text" },
   { key: "nav_demo", sel: ".nav-links li:nth-child(3) a", prop: "text" },
   { key: "nav_faq", sel: ".nav-links li:nth-child(4) a", prop: "text" },
+  { key: "nav_contact", sel: ".nav-links li:nth-child(5) a", prop: "text" },
+
   /* Nav drawer */
   { key: "nav_how", sel: ".nav-drawer-links li:nth-child(1) a", prop: "text" },
   {
@@ -125,6 +127,11 @@ const I18N_MAP = [
   },
   { key: "nav_demo", sel: ".nav-drawer-links li:nth-child(3) a", prop: "text" },
   { key: "nav_faq", sel: ".nav-drawer-links li:nth-child(4) a", prop: "text" },
+  {
+    key: "nav_contact",
+    sel: ".nav-drawer-links li:nth-child(5) a",
+    prop: "text",
+  },
   { key: "nav_try", sel: ".nav-drawer-btns .btn-ghost", prop: "text" },
 
   /* Hero */
@@ -304,11 +311,22 @@ const I18N_MAP = [
   { key: "faq_a4", sel: ".faq-item:nth-child(4) .faq-item-a", prop: "text" },
 
   /* Footer */
-  { key: "footer_how", sel: ".footer-links a:nth-child(1)", prop: "text" },
-  { key: "footer_results", sel: ".footer-links a:nth-child(2)", prop: "text" },
-  { key: "footer_demo", sel: ".footer-links a:nth-child(3)", prop: "text" },
-  { key: "footer_faq", sel: ".footer-links a:nth-child(4)", prop: "text" },
-  { key: "footer_copy", sel: ".footer-copy", prop: "text" },
+  { key: "footer_tagline", sel: ".footer-tagline", prop: "html" },
+  {
+    key: "footer_col_links",
+    sel: ".footer-links .footer-col-hd",
+    prop: "text",
+  },
+  { key: "footer_how", sel: ".footer-links a:nth-child(2)", prop: "text" },
+  { key: "footer_results", sel: ".footer-links a:nth-child(3)", prop: "text" },
+  { key: "footer_demo", sel: ".footer-links a:nth-child(4)", prop: "text" },
+  { key: "footer_faq", sel: ".footer-links a:nth-child(5)", prop: "text" },
+  {
+    key: "footer_col_contact",
+    sel: ".footer-contact .footer-col-hd",
+    prop: "text",
+  },
+  { key: "footer_copy", sel: ".footer-bottom-inner", prop: "html" },
 ];
 
 function applyLang(lang) {
