@@ -1691,7 +1691,7 @@ footer {
     }
 
     .footer-links {
-        margin-left: clamp(12px, 5vw, 25px)
+        margin-left: clamp(12px, 4vw, 25px)
     }
 
     .footer-contact {
