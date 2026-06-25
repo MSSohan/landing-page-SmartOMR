@@ -1695,7 +1695,7 @@ footer {
     }
 
     .footer-contact {
-        margin-right: clamp(13px, 3vw, 20px)
+        margin-right: clamp(19px, 30vw, 60px)
     }
 }
 
