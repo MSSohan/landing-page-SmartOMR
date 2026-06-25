@@ -1533,7 +1533,8 @@ footer {
     padding: clamp(24px, 4vw, 36px) 0 0;
     border-top: 1px solid rgba(255, 255, 255, .05);
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    z-index: 1;
 }
 
 .footer-inner {
