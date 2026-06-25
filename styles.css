@@ -1691,11 +1691,11 @@ footer {
     }
 
     .footer-links {
-        margin-left: clamp(12px, 3vw, 20px)
+        margin-left: clamp(12px, 5vw, 25px)
     }
 
     .footer-contact {
-        margin-right: clamp(19px, 30vw, 60px)
+        margin-right: clamp(13px, 5vw, 25px)
     }
 }
 
