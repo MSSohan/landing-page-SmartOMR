@@ -1670,11 +1670,11 @@ footer {
     }
 
     .footer-links {
-        padding-left: clamp(15px, 25vw, 60px)
+        margin-left: clamp(15px, 25vw, 60px)
     }
 
     .footer-contact {
-        padding-right: clamp(15px, 25vw, 60px)
+        margin-right: clamp(15px, 25vw, 60px)
     }
 
     .footer-tagline {
@@ -1691,11 +1691,11 @@ footer {
     }
 
     .footer-links {
-        padding-left: clamp(12px, 3vw, 20px)
+        margin-left: clamp(12px, 3vw, 20px)
     }
 
     .footer-contact {
-        padding-right: clamp(13px, 3vw, 20px)
+        margin-right: clamp(13px, 3vw, 20px)
     }
 }
 
