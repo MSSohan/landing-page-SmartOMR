@@ -353,6 +353,17 @@ function applyLang(lang) {
     });
   });
 
+  // swap video src based on data attributes
+  const video = document.getElementById("hero-video");
+  if (video) {
+    const newSrc =
+      video.dataset[`src${lang.charAt(0).toUpperCase() + lang.slice(1)}`];
+    if (newSrc && video.src !== newSrc) {
+      video.src = newSrc;
+      video.load();
+    }
+  }
+
   // Update body class
   document.body.classList.toggle("lang-bn", lang === "bn");
 
