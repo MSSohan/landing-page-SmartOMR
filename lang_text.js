@@ -12,7 +12,7 @@ const LANG = {
     hero_h1_1: "OMR simplified —",
     hero_h1_2: "Evaluate results in minutes",
     hero_sub:
-      "Scan sheets with your phone. Get instant results. Export to Excel automatically.",
+      "Scan OMR sheets with your phone. Get instant results. Export to Excel automatically.",
     hero_cta: "Start Now",
 
     /* Stats */
